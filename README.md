@@ -9,24 +9,16 @@ Installation
 
 ### Prerequisites
 
-To use the Blip SDK for iOS, you will need the following installed on your development machine:
-
-**TODO - Add other prerequisites**
-
-<!-- Xcode 7 or later -->
-* iOS 8 or later
+To use the Blip SDK for iOS, you must target iOS 8 or later.
 
 Import the Blip SDK for iOS into your project via CocoaPods:
 
 1. If you have not installed CocoaPods, install it by running the command:
 
-        $ gem install cocoapods
+        $ [sudo] gem install cocoapods
         $ pod setup
 
 2. Create a plain text file named `Podfile` (without any file extension) inside your project directory. Add the lines below to your file and replace `YourTarget` with your actual target name.
-
-        # Uncomment the next line to define a global platform for your project
-        # platform :ios, '9.0'
 
         target 'YourTarget' do
           use_frameworks!
@@ -40,9 +32,6 @@ Import the Blip SDK for iOS into your project via CocoaPods:
 4. Open up `*.xcworkspace` with Xcode and start using the SDK.
 
     **Note**: Do **NOT** use `*.xcodeproj`.  You receive an error if you open up a project file instead of a workspace.
-
-<!-- ld: library not found for -lPods-AWSCore -->
-<!-- clang: error: linker command failed with exit code 1 (use -v to see invocation) -->
 
 How to use
 -------------------------
@@ -60,6 +49,7 @@ __To get an owner account enter in contact with BLiP team.__
 
 1. Create a new plist file named **blip.plist** on your project.
 
+![](images/plistfile.png)
 
 2. Set your credentials, like bellow, on **blip.plist** file
 
@@ -82,29 +72,69 @@ __To get an owner account enter in contact with BLiP team.__
     **Objective-C**
 
     ```Objective-C
-    #import "BlipSDK-Swift.h"
+    #import "BlipSDK/BlipSDK-Swift.h"
     ```
 
 2. To open a new thread is very simple. Use **BlipClient** helper class and call *openBlipThread* method.
 
     **Swift**
     ```swift
-    let userAccount = BlipAccount()
-    userAccount.name = "Nome teste"
-    userAccount.photoUri = "Uri teste"
-    userAccount.externalId = "Id teste"
-    BlipClient.setUserAccount(userAccount: userAccount)
-    BlipClient.openBlipThread(myView: self, recipientIdentifier: "testeblipcards")
+    BlipClient.openBlipThread(myView: self, recipientIdentifier: "your-chatbot-identifier")
     ```
 
     **Objective-C**
 
     ```Objective-C
-    BlipAccount *userAccount = [[BlipAccount alloc] init];
-    userAccount.name = @"Nome teste";
-    userAccount.photoUri = @"Uri teste";
-    userAccount.externalId = @"Id teste";
-    [BlipClient setUserAccountWithUserAccount:userAccount];
+    [BlipClient openBlipThreadWithMyView:self recipientIdentifier:@"your-chatbot-identifier"];
+    ```
+    
+    For instance, imagine that you want to establish a new conversation between your customer and your chatbot, when your ViewController is loaded.
+    
+    **Swift**
+    ```swift
+import UIKit
+import WebKit
+import BlipSDK
+
+class ViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        BlipClient.openBlipThread(myView: self, recipientIdentifier: "testeblipcards")
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+}
+    ```
+
+    **Objective-C**
+
+    ```Objective-C
+#import "ViewController.h"
+#import "BlipSDK/BlipSDK-Swift.h"
+
+@interface ViewController ()
+@end
+
+@implementation ViewController
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear: animated];
+    [BlipClient openBlipThreadWithMyView:self recipientIdentifier:@"testeblipcards"];
+    // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+@end
     [BlipClient openBlipThreadWithMyView:self recipientIdentifier:@"testeblipcards"];
     ```
 
