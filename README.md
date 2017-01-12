@@ -11,8 +11,10 @@ Installation
 
 To use the Blip SDK for iOS, you will need the following installed on your development machine:
 
+**TODO - Add other prerequisites**
+
 <!-- Xcode 7 or later -->
-<!-- iOS 8 or later -->
+* iOS 8 or later
 
 Import the Blip SDK for iOS into your project via CocoaPods:
 
@@ -21,45 +23,23 @@ Import the Blip SDK for iOS into your project via CocoaPods:
         $ gem install cocoapods
         $ pod setup
 
-<!-- Depending on your system settings, you may have to use `sudo` for installing `cocoapods` as follows: -->
-
-<!-- $ sudo gem install cocoapods -->
-<!-- $ pod setup -->
-
 2. Create a plain text file named `Podfile` (without any file extension) inside your project directory. Add the lines below to your file and replace `YourTarget` with your actual target name.
 
         # Uncomment the next line to define a global platform for your project
         # platform :ios, '9.0'
 
-        target 'blip-sdk-webview' do
-          # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+        target 'YourTarget' do
           use_frameworks!
-
-          # Pods for blip-sdk-webview
-          #pod “BlipSDK”, :path => “../../sdk/BlipSDK”
           pod "BlipSDK"
-
-          pod 'Google-Mobile-Ads-SDK'
-
-          target 'blip-sdk-webviewTests' do
-            inherit! :search_paths
-            # Pods for testing
-          end
-
-          target 'blip-sdk-webviewUITests' do
-            inherit! :search_paths
-            # Pods for testing
-          end
-
         end
 
-3. Run the following command
+3. Run the following command.
 
         $ pod install
 
-4. Open up `*.xcworkspace` with Xcode and start using the SDK
+4. Open up `*.xcworkspace` with Xcode and start using the SDK.
 
-    **Note**: Do **NOT** use `*.xcodeproj`. If you open up a project file instead of a workspace, you receive an error:
+    **Note**: Do **NOT** use `*.xcodeproj`.  You receive an error if you open up a project file instead of a workspace.
 
 <!-- ld: library not found for -lPods-AWSCore -->
 <!-- clang: error: linker command failed with exit code 1 (use -v to see invocation) -->
@@ -67,37 +47,57 @@ Import the Blip SDK for iOS into your project via CocoaPods:
 How to use
 -------------------------
 
+## Quick start
+
 ### Setting your SDK
 
 After include sdk reference on your project you must provide a valid **BLiP owner account**.
-Only with this special account is possible to use this sdk.
+Only with this special account is possible to use this SDK.
 
-__To get an owner account enter in contact with BLiP team__
+__To get an owner account enter in contact with BLiP team.__
 
 ### After getting your owner account
 
-1. Create a new plist file named **blip.plist** on your project
+1. Create a new plist file named **blip.plist** on your project.
 
 
 2. Set your credentials, like bellow, on **blip.plist** file
 
 *TODO
 
-## Quick start
 
-###Getting Started with Swift
+###Opening a new Blip Conversation
 
-###Getting Started with Objective-C
+1. Importing BlipSKD
 
-### Openning a new BLiP conversation
+    **Swift**
+    ```swift
+    import BlipSDK
+    ```
 
-To open a new thread is very simple. Use **BlipClient** helper class and call *openBlipThread* method
+    **Objective-C**
 
+    ```Objective-C
+    import BlipSDK
+    ```
 
-*TODO
+2. To open a new thread is very simple. Use **BlipClient** helper class and call *openBlipThread* method.
 
+    **Swift**
+    ```swift
+    import BlipSDK
+    ```
+
+    **Objective-C**
+
+    ```Objective-C
+    import BlipSDK
+    ```
+
+**TODO - Add code**
 
 *To find your chatbot identifier go to [BLiP Portal](https://portal.blip.ai/#/application), select your chatbot and click 'Settings' on the left bar.
+
 
 ## Advanced features
 
@@ -106,11 +106,29 @@ To open a new thread is very simple. Use **BlipClient** helper class and call *o
 Sometimes, is very important that your chatbot knows information about your customers, as name or some external identifier for example.
 To do this use *setUserAccount* method on **BlipClient** helper class.
 
-*TODO
+**Swift**
+```swift
+//Add code
+```
+
+**Objective-C**
+
+```Objective-C
+//Add code
+```
 
 For instance,
 
-*TODO
+**Swift**
+```swift
+//Add code
+```
+
+**Objective-C**
+
+```Objective-C
+//Add code
+```
 
 License
 -------
