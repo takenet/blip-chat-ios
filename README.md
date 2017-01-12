@@ -63,8 +63,12 @@ __To get an owner account enter in contact with BLiP team.__
 
 2. Set your credentials, like bellow, on **blip.plist** file
 
-*TODO
-
+    ```xml
+    <key>blipsdk.ownerIdentity</key>
+    <string>your-valid-identity</string>
+    <key>blipsdk.ownerPassword</key>
+    <string>your-valid-password</string>
+    ```
 
 ###Opening a new Blip Conversation
 
@@ -78,26 +82,33 @@ __To get an owner account enter in contact with BLiP team.__
     **Objective-C**
 
     ```Objective-C
-    import BlipSDK
+    #import "BlipSDK-Swift.h"
     ```
 
 2. To open a new thread is very simple. Use **BlipClient** helper class and call *openBlipThread* method.
 
     **Swift**
     ```swift
-    import BlipSDK
+    let userAccount = BlipAccount()
+    userAccount.name = "Nome teste"
+    userAccount.photoUri = "Uri teste"
+    userAccount.externalId = "Id teste"
+    BlipClient.setUserAccount(userAccount: userAccount)
+    BlipClient.openBlipThread(myView: self, recipientIdentifier: "testeblipcards")
     ```
 
     **Objective-C**
 
     ```Objective-C
-    import BlipSDK
+    BlipAccount *userAccount = [[BlipAccount alloc] init];
+    userAccount.name = @"Nome teste";
+    userAccount.photoUri = @"Uri teste";
+    userAccount.externalId = @"Id teste";
+    [BlipClient setUserAccountWithUserAccount:userAccount];
+    [BlipClient openBlipThreadWithMyView:self recipientIdentifier:@"testeblipcards"];
     ```
 
-**TODO - Add code**
-
 *To find your chatbot identifier go to [BLiP Portal](https://portal.blip.ai/#/application), select your chatbot and click 'Settings' on the left bar.
-
 
 ## Advanced features
 
