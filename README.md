@@ -87,6 +87,7 @@ __To get an owner account enter in contact with BLiP team.__
     ```Objective-C
     [BlipClient openBlipThreadWithMyView:self recipientIdentifier:@"your-chatbot-identifier"];
     ```
+    Obs: In Objective-C the method name is *openBlipThreadWithMyView*
     
     For instance, imagine that you want to establish a new conversation between your customer and your chatbot, when your ViewController is loaded.
     
@@ -135,7 +136,6 @@ class ViewController: UIViewController {
     // Dispose of any resources that can be recreated.
 }
 @end
-    [BlipClient openBlipThreadWithMyView:self recipientIdentifier:@"testeblipcards"];
     ```
 
 *To find your chatbot identifier go to [BLiP Portal](https://portal.blip.ai/#/application), select your chatbot and click 'Settings' on the left bar.
@@ -149,26 +149,84 @@ To do this use *setUserAccount* method on **BlipClient** helper class.
 
 **Swift**
 ```swift
-//Add code
+let userAccount = BlipAccount()
+userAccount.name = "your-customer-name"
+userAccount.photoUri = "your-customer-photo-uri"
+userAccount.externalId = "your-customer-id"
+BlipClient.setUserAccount(userAccount: userAccount)
 ```
 
 **Objective-C**
 
 ```Objective-C
-//Add code
+BlipAccount *userAccount = [[BlipAccount alloc] init];
+userAccount.name = @"your-customer-name";
+userAccount.photoUri = @"your-customer-photo-uri";
+userAccount.externalId = @"your-customer-id";
+[BlipClient setUserAccountWithUserAccount:userAccount];
 ```
+
+Obs: In Objective-C the method name is *setUserAccountWithUserAccount*
 
 For instance,
 
 **Swift**
 ```swift
-//Add code
+import UIKit
+import WebKit
+import BlipSDK
+
+class ViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let userAccount = BlipAccount()
+        userAccount.name = "Nome teste"
+        userAccount.photoUri = "Uri teste"
+        userAccount.externalId = "Id teste"
+        BlipClient.setUserAccount(userAccount: userAccount)
+        BlipClient.openBlipThread(myView: self, recipientIdentifier: "testeblipcards")
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+}
 ```
 
 **Objective-C**
 
 ```Objective-C
-//Add code
+#import "ViewController.h"
+#import "BlipSDK/BlipSDK-Swift.h"
+
+
+@interface ViewController ()
+@end
+
+@implementation ViewController
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear: animated];
+    // Do any additional setup after loading the view, typically from a nib.
+    BlipAccount *userAccount = [[BlipAccount alloc] init];
+    userAccount.name = @"Nome teste";
+    userAccount.photoUri = @"Uri teste";
+    userAccount.externalId = @"Id teste";
+    [BlipClient setUserAccountWithUserAccount:userAccount];
+    [BlipClient openBlipThreadWithMyView:self recipientIdentifier:@"testeblipcards"];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+@end
 ```
 
 License
