@@ -229,6 +229,27 @@ class ViewController: UIViewController {
 @end
 ```
 
+Troubleshooting
+-------
+
+**dyld: Library not loaded: @rpath/libswiftCore.dylib / Image not found**
+
+Objective-C projects can presents an error about library not loaded
+
+If this occurs follow this steps:
+
+1. Set your build setting variable *Runpath Search Paths* to **@executable_path/Frameworks**
+
+To do this go to:
+
+your_target -> Build Settings -> Linking -> Runpath Search Paths
+
+2. Switch build setting variable *Embedded Content Contains Swift Code* to **Yes**
+
+your_target -> Build Settings -> Embedded Content Contains Swift Code
+
+For a more detailed explanation see [this thread](http://stackoverflow.com/questions/26104975/dyld-library-not-loaded-rpath-libswiftcore-dylib-image-not-found) on stackoverflow
+
 License
 -------
 
