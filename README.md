@@ -15,23 +15,23 @@ Import the Blip SDK for iOS into your project via CocoaPods:
 
 1. If you have not installed CocoaPods, install it by running the command:
 
-        $ [sudo] gem install cocoapods
-        $ pod setup
+		$ [sudo] gem install cocoapods
+		$ pod setup
 
 2. Create a plain text file named `Podfile` (without any file extension) inside your project directory. Add the lines below to your file and replace `YourTarget` with your actual target name.
 
-        target 'YourTarget' do
-          use_frameworks!
-          pod "BlipSDK"
-        end
+		target 'YourTarget' do
+		  use_frameworks!
+		  pod "BlipSDK"
+		end
 
 3. Run the following command.
 
-        $ pod install
+		$ pod install
 
 4. Open up `*.xcworkspace` with Xcode and start using the SDK.
 
-    **Note**: Do **NOT** use `*.xcodeproj`.  You receive an error if you open up a project file instead of a workspace.
+	**Note**: Do **NOT** use `*.xcodeproj`.  You receive an error if you open up a project file instead of a workspace.
 
 How to use
 -------------------------
@@ -53,90 +53,90 @@ __To get an owner account enter in contact with BLiP team.__
 
 2. Set your credentials, like bellow, on **blip.plist** file
 
-    ```xml
-    <key>blipsdk.ownerIdentity</key>
-    <string>your-valid-identity</string>
-    <key>blipsdk.ownerPassword</key>
-    <string>your-valid-password</string>
-    ```
+	```xml
+	<key>blipsdk.ownerIdentity</key>
+	<string>your-valid-identity</string>
+	<key>blipsdk.ownerPassword</key>
+	<string>your-valid-password</string>
+	```
 
 ###Opening a new Blip Conversation
 
 1. Importing BlipSKD
 
-    **Swift**
-    ```swift
-    import BlipSDK
-    ```
+	**Swift**
+	```swift
+	import BlipSDK
+	```
 
-    **Objective-C**
+	**Objective-C**
 
-    ```Objective-C
-    #import "BlipSDK/BlipSDK-Swift.h"
-    ```
+	```Objective-C
+	#import "BlipSDK/BlipSDK-Swift.h"
+	```
 
 2. To open a new thread is very simple. Use **BlipClient** helper class and call *openBlipThread* method.
 
-    **Swift**
-    ```swift
-    BlipClient.openBlipThread(myView: self, recipientIdentifier: "your-chatbot-identifier")
-    ```
+	**Swift**
+	```swift
+	BlipClient.openBlipThread(myView: self, recipientIdentifier: "your-chatbot-identifier")
+	```
 
-    **Objective-C**
+	**Objective-C**
 
-    ```Objective-C
-    [BlipClient openBlipThreadWithMyView:self recipientIdentifier:@"your-chatbot-identifier"];
-    ```
-    Obs: In Objective-C the method name is *openBlipThreadWithMyView*
-    
-    For instance, imagine that you want to establish a new conversation between your customer and your chatbot, when your ViewController is loaded.
-    
-    **Swift**
-    ```swift
-import UIKit
-import WebKit
-import BlipSDK
+	```Objective-C
+	[BlipClient openBlipThreadWithMyView:self recipientIdentifier:@"your-chatbot-identifier"];
+	```
+	Obs: In Objective-C the method name is *openBlipThreadWithMyView*
+	
+	For instance, imagine that you want to establish a new conversation between your customer and your chatbot, when your ViewController is loaded.
+	
+	**Swift**
+	```swift
+	import UIKit
+	import WebKit
+	import BlipSDK
 
-class ViewController: UIViewController {
+	class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+		override func viewDidLoad() {
+			super.viewDidLoad()
+		}
 
-    override func viewDidAppear(_ animated: Bool) {
-        BlipClient.openBlipThread(myView: self, recipientIdentifier: "testeblipcards")
-    }
+		override func viewDidAppear(_ animated: Bool) {
+			BlipClient.openBlipThread(myView: self, recipientIdentifier: "testeblipcards")
+		}
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-}
-    ```
+		override func didReceiveMemoryWarning() {
+			super.didReceiveMemoryWarning()
+			// Dispose of any resources that can be recreated.
+		}
+	}
+	```
 
-    **Objective-C**
+	**Objective-C**
 
-    ```Objective-C
-#import "ViewController.h"
-#import "BlipSDK/BlipSDK-Swift.h"
+	```Objective-C
+	#import "ViewController.h"
+	#import "BlipSDK/BlipSDK-Swift.h"
 
-@interface ViewController ()
-@end
+	@interface ViewController ()
+	@end
 
-@implementation ViewController
+	@implementation ViewController
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear: animated];
-    [BlipClient openBlipThreadWithMyView:self recipientIdentifier:@"testeblipcards"];
-    // Do any additional setup after loading the view, typically from a nib.
-}
+	- (void)viewDidAppear:(BOOL)animated {
+		[super viewDidAppear: animated];
+		[BlipClient openBlipThreadWithMyView:self recipientIdentifier:@"testeblipcards"];
+		// Do any additional setup after loading the view, typically from a nib.
+	}
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-@end
-    ```
+	- (void)didReceiveMemoryWarning {
+		[super didReceiveMemoryWarning];
+		// Dispose of any resources that can be recreated.
+	}
+	@end
+	```
 
 *To find your chatbot identifier go to [BLiP Portal](https://portal.blip.ai/#/application), select your chatbot and click 'Settings' on the left bar.
 
@@ -168,6 +168,23 @@ userAccount.externalId = @"your-customer-id";
 
 Obs: In Objective-C the method name is *setUserAccountWithUserAccount*
 
+### Setting title for chat window 
+
+In iOS you are able to set a title of the chat view. This title will be shown on the top of the ModalView.
+
+**Swift**
+```swift
+BlipClient.setTitle(title: "My Chat")
+```
+
+**Objective-C**
+
+```Objective-C
+[BlipClient setTitleWithTitle:@"MyChat"];
+```
+
+Obs: In Objective-C the method name is *setTitleWithTitle*
+
 For instance,
 
 **Swift**
@@ -177,24 +194,25 @@ import WebKit
 import BlipSDK
 
 class ViewController: UIViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        let userAccount = BlipAccount()
-        userAccount.name = "Nome teste"
-        userAccount.photoUri = "Uri teste"
-        userAccount.externalId = "Id teste"
-        BlipClient.setUserAccount(userAccount: userAccount)
-        BlipClient.openBlipThread(myView: self, recipientIdentifier: "testeblipcards")
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+	}
+	
+	override func viewDidAppear(_ animated: Bool) {
+		let userAccount = BlipAccount()
+		userAccount.name = "Nome teste"
+		userAccount.photoUri = "Uri teste"
+		userAccount.externalId = "Id teste"
+		BlipClient.setUserAccount(userAccount: userAccount)
+		BlipClient.setTitle(title: "My Chat")
+		BlipClient.openBlipThread(myView: self, recipientIdentifier: "testeblipcards")
+	}
+	
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		// Dispose of any resources that can be recreated.
+	}
 }
 ```
 
@@ -211,19 +229,20 @@ class ViewController: UIViewController {
 @implementation ViewController
 
 - (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear: animated];
-    // Do any additional setup after loading the view, typically from a nib.
-    BlipAccount *userAccount = [[BlipAccount alloc] init];
-    userAccount.name = @"Nome teste";
-    userAccount.photoUri = @"Uri teste";
-    userAccount.externalId = @"Id teste";
-    [BlipClient setUserAccountWithUserAccount:userAccount];
-    [BlipClient openBlipThreadWithMyView:self recipientIdentifier:@"testeblipcards"];
+	[super viewDidAppear: animated];
+	// Do any additional setup after loading the view, typically from a nib.
+	BlipAccount *userAccount = [[BlipAccount alloc] init];
+	userAccount.name = @"Nome teste";
+	userAccount.photoUri = @"Uri teste";
+	userAccount.externalId = @"Id teste";
+	[BlipClient setUserAccountWithUserAccount:userAccount];
+	[BlipClient setTitleWithTitle:@"MyChat"];
+	[BlipClient openBlipThreadWithMyView:self recipientIdentifier:@"testeblipcards"];
 }
 
 - (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+	[super didReceiveMemoryWarning];
+	// Dispose of any resources that can be recreated.
 }
 
 @end
@@ -251,17 +270,17 @@ For a more detailed explanation see [this thread](http://stackoverflow.com/quest
 License
 -------
 
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
 
-       http://www.apache.org/licenses/LICENSE-2.0
+	   http://www.apache.org/licenses/LICENSE-2.0
 
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
 
 
  [1]: https://blip.ai
