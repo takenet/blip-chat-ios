@@ -267,6 +267,19 @@ your_target -> Build Settings -> Build Options -> Always Embed Swift Standard Li
 
 For a more detailed explanation see [this thread](http://stackoverflow.com/questions/26104975/dyld-library-not-loaded-rpath-libswiftcore-dylib-image-not-found) on stackoverflow
 
+B -> **App Transport Security has blocked a HTTP (http://) resource**
+
+If this occurs you have two options:
+
+1) Use only HTTPS resources on your chatbot
+
+2) Add the key NSAppTransportSecurity to your app info.plist.
+
+* Open your Project info.plist file
+* Add a Key called NSAppTransportSecurity as a Dictionary.
+* Add a Subkey called NSAllowsArbitraryLoads as Boolean and set its value to YES as like following image.
+![](images/transportSecurity.png)
+
 License
 -------
 
