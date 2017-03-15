@@ -59,8 +59,11 @@ __To get an owner account enter in contact with BLiP team.__
 	<key>blipsdk.ownerPassword</key>
 	<string>your-valid-password</string>
 	```
+3. Set up the Usage Description Key for Location Service on **info.plist** file. Use the key *Privacy - Location When In Use Usage Description* and set a message to ask for user's permission to use location. 
 
-###Opening a new Blip Conversation
+![](images/location.png)
+
+### Opening a new Blip Conversation
 
 1. Importing BlipSKD
 
