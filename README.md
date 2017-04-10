@@ -9,7 +9,7 @@ Installation
 
 ### Prerequisites
 
-To use the Blip SDK for iOS, you must target iOS 8 or later.
+To use the Blip SDK for iOS, you must target iOS 10 or later.
 
 Import the Blip SDK for iOS into your project via CocoaPods:
 
@@ -40,26 +40,9 @@ How to use
 
 ### Setting your SDK
 
-After include sdk reference on your project you must provide a valid **BLiP owner account**.
-Only with this special account is possible to use this SDK.
+After including sdk reference on your project you need to get your api key on [BLiP portal][3]. Go to the left menu and access `Publications > Blip Chat`.
 
-__To get an owner account enter in contact with BLiP team.__
-
-### After getting your owner account
-
-1. Create a new plist file named **blip.plist** on your project.
-
-![](images/plistfile.png)
-
-2. Set your credentials, like bellow, on **blip.plist** file
-
-	```xml
-	<key>blipsdk.ownerIdentity</key>
-	<string>your-valid-identity</string>
-	<key>blipsdk.ownerPassword</key>
-	<string>your-valid-password</string>
-	```
-3. Set up the Usage Description Key for Location Service on **info.plist** file. Use the key *Privacy - Location When In Use Usage Description* and set a message to ask for user's permission to use location. 
+To use location cards set up the Usage Description Key for Location Service on **info.plist** file. Use the key *Privacy - Location When In Use Usage Description* and set a message to ask for user's permission to use location. 
 
 ![](images/location.png)
 
@@ -82,13 +65,13 @@ __To get an owner account enter in contact with BLiP team.__
 
 	**Swift**
 	```swift
-	BlipClient.openBlipThread(myView: self, recipientIdentifier: "your-chatbot-identifier")
+	BlipClient.openBlipThread(myView: self, apiKey: "your-api-key", options: nil)
 	```
 
 	**Objective-C**
 
 	```Objective-C
-	[BlipClient openBlipThreadWithMyView:self recipientIdentifier:@"your-chatbot-identifier"];
+	[BlipClient openBlipThreadWithMyView:self apiKey:(NSString*) @"your-api-key" options:options error: nil];
 	```
 	Obs: In Objective-C the method name is *openBlipThreadWithMyView*
 	
@@ -107,7 +90,11 @@ __To get an owner account enter in contact with BLiP team.__
 		}
 
 		override func viewDidAppear(_ animated: Bool) {
-			BlipClient.openBlipThread(myView: self, recipientIdentifier: "testeblipcards")
+			do {
+            	try BlipClient.openBlipThread(myView: self, apiKey: "your-api-key", options: nil)
+			} catch {
+				print (error.localizedDescription)
+			}
 		}
 
 		override func didReceiveMemoryWarning() {
@@ -130,8 +117,7 @@ __To get an owner account enter in contact with BLiP team.__
 
 	- (void)viewDidAppear:(BOOL)animated {
 		[super viewDidAppear: animated];
-		[BlipClient openBlipThreadWithMyView:self recipientIdentifier:@"testeblipcards"];
-		// Do any additional setup after loading the view, typically from a nib.
+		[BlipClient openBlipThreadWithMyView:self apiKey:(NSString*) @"your-api-key" options:nil error: nil];
 	}
 
 	- (void)didReceiveMemoryWarning {
@@ -140,8 +126,6 @@ __To get an owner account enter in contact with BLiP team.__
 	}
 	@end
 	```
-
-*To find your chatbot identifier go to [BLiP Portal](https://portal.blip.ai/#/application), select your chatbot and click 'Settings' on the left bar.
 
 ## Advanced features
 
