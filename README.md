@@ -129,50 +129,56 @@ To use location cards set up the Usage Description Key for Location Service on *
 
 ## Advanced features
 
-### Setting information about your client
+### Defining authentication type
 
-Sometimes, is very important that your chatbot knows information about your customers, as name or some external identifier for example.
-To do this use *setUserAccount* method on **BlipClient** helper class.
+BLiP iOS SDK supports three different user authentication types. It is possible to define which authentication method BLiP SDK will use to identify your client.
+
+* Guest - Users will receive a guest account to interact with the chatbot. In this mode the users have not message history.
+* Login - Users will receive an account with his 'Name' and 'Email' (provided by the user) to interact with the chatbot. In this mode the users have not message history.
+* Dev - Users will receive an account identified by developer to interact with the chatbot. User data must be provided passing a BlipOptions instance as parameter on *BlipClient.openThread* method. You can set 4 properties: `userIdentifier`, `userPassword`, `userName` and `userEmail`. `UserIdentifier` and `userPassword` are **required**. In this mode the users have message history.
+
+To define what user authetication type use the AuthTypeProvider.AuthType enum on authType propertie of BlipOptions. When using Swift, possible values for authType are: `.Guest`, `.Login` and `.Dev`. When using Objective-C, possible values are: `AuthTypeGuest`, `AuthTypeLogin` and `AuthTypeDev`.
+
+Note: Guest type will be used as default If you do not define 'authType'.
 
 **Swift**
+
 ```swift
-let userAccount = BlipAccount()
-userAccount.name = "your-customer-name"
-userAccount.photoUri = "your-customer-photo-uri"
-userAccount.externalId = "your-customer-id"
-BlipClient.setUserAccount(userAccount: userAccount)
+ let options = BlipOptions(authType: .Dev,
+                                  userIdentifier: "user-identifier",
+                                  userPassword: "user-password",
+                                  userName: "user-name",
+                                  userEmail: "user-email")
 ```
 
 **Objective-C**
 
 ```Objective-C
-BlipAccount *userAccount = [[BlipAccount alloc] init];
-userAccount.name = @"your-customer-name";
-userAccount.photoUri = @"your-customer-photo-uri";
-userAccount.externalId = @"your-customer-id";
-[BlipClient setUserAccountWithUserAccount:userAccount];
+BlipOptions *options = [[BlipOptions alloc] init];
+options.authType = AuthTypeDev;
+options.userIdentifier = @"user-identifier";
+options.userPassword = @"user-password";
+options.userName = @"user-name";
+options.userEmail = @"user-email";
 ```
 
-Obs: In Objective-C the method name is *setUserAccountWithUserAccount*
+### Setting a title for chat window 
 
-### Setting title for chat window 
-
-In iOS you are able to set a title of the chat view. This title will be shown on the top of the ModalView.
+In iOS you are able to set a title for the chat view. This title will be shown on the top of the ModalView.
 
 **Swift**
 ```swift
-BlipClient.setTitle(title: "My Chat")
+let options = BlipOptions()
+options.windowTitle = "Window Title"
 ```
 
 **Objective-C**
 
 ```Objective-C
-[BlipClient setTitleWithTitle:@"MyChat"];
+BlipOptions *options = [[BlipOptions alloc] init];
+options.windowTitle = @"Window Title";
 ```
-
-Obs: In Objective-C the method name is *setTitleWithTitle*
-
-For instance,
+### Example setting window title and using Dev auth type:
 
 **Swift**
 ```swift
@@ -187,13 +193,18 @@ class ViewController: UIViewController {
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
-		let userAccount = BlipAccount()
-		userAccount.name = "Nome teste"
-		userAccount.photoUri = "Uri teste"
-		userAccount.externalId = "Id teste"
-		BlipClient.setUserAccount(userAccount: userAccount)
-		BlipClient.setTitle(title: "My Chat")
-		BlipClient.openBlipThread(myView: self, recipientIdentifier: "testeblipcards")
+		let options = BlipOptions(authType: .Dev,
+                                  userIdentifier: "user-identifier",
+                                  userPassword: "user-password",
+                                  userName: "user-name",
+                                  userEmail: "user-email")
+		options.windowTitle = "window-title"
+
+		do {
+            try BlipClient.openBlipThread(myView: self, apiKey: "your-api-key", options: options)
+        } catch {
+            print (error.localizedDescription)
+        }
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -217,14 +228,16 @@ class ViewController: UIViewController {
 
 - (void)viewDidAppear:(BOOL)animated {
 	[super viewDidAppear: animated];
-	// Do any additional setup after loading the view, typically from a nib.
-	BlipAccount *userAccount = [[BlipAccount alloc] init];
-	userAccount.name = @"Nome teste";
-	userAccount.photoUri = @"Uri teste";
-	userAccount.externalId = @"Id teste";
-	[BlipClient setUserAccountWithUserAccount:userAccount];
-	[BlipClient setTitleWithTitle:@"MyChat"];
-	[BlipClient openBlipThreadWithMyView:self recipientIdentifier:@"testeblipcards"];
+
+	BlipOptions *options = [[BlipOptions alloc] init];
+    options.authType = AuthTypeDev;
+    options.userIdentifier = @"user-identifier";
+    options.userPassword = @"user-password";
+    options.userName = @"user-name";
+    options.userEmail = @"user-email";
+    options.windowTitle = @"window-title";
+    
+    [BlipClient openBlipThreadWithMyView:self apiKey:(NSString*) @"your-api-key" options:options error: nil];
 }
 
 - (void)didReceiveMemoryWarning {
