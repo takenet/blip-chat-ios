@@ -2,7 +2,7 @@
 Blip SDK for iOS
 ======
 
-SDK to easily add BLiP conversations in your iOS app. For more information see [BLiP portal][1] and [BLiP documentation][2].
+SDK to easily add BLiP conversations in your iOS app. For more information see [BLiP portal][1] and [BLiP documentation][2]. See supported versions [here](#support).
 
 Installation
 --------
@@ -279,6 +279,11 @@ If this occurs you have two options:
 * Add a Key called NSAppTransportSecurity as a Dictionary.
 * Add a Subkey called NSAllowsArbitraryLoads as Boolean and set its value to YES as like following image.
 ![](images/transportSecurity.png)
+
+### Support
+-------
+
+  iOS 10.
 
 License
 -------
