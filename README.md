@@ -1,17 +1,17 @@
 
-Blip SDK for iOS
+BLiP Chat for iOS
 ======
 
-SDK to easily add BLiP conversations in your iOS app. For more information see [BLiP portal][1] and [BLiP documentation][2]. See supported versions [here](#support).
+SDK to easily add BLiP Chat widget in your iOS app. For more information see [BLiP portal][1] and [BLiP documentation][2]. See supported versions [here](#support).
 
 Installation
 --------
 
 ### Prerequisites
 
-To use the Blip SDK for iOS, you must target iOS 10 or later.
+To use the BLiP Chat for iOS, you must target iOS 10 or later.
 
-Import the Blip SDK for iOS into your project via CocoaPods:
+Import the BLiP Chat for iOS into your project via CocoaPods:
 
 1. If you have not installed CocoaPods, install it by running the command:
 
@@ -131,7 +131,7 @@ To use location cards set up the Usage Description Key for Location Service on *
 
 ### Defining authentication type
 
-BLiP iOS SDK supports three different user authentication types. It is possible to define which authentication method BLiP SDK will use to identify your client.
+BLiP Chat iOS sdk supports three different user authentication types. It is possible to define which authentication method will be used to identify your client.
 
 * Guest - Users will receive a guest account to interact with the chatbot. In this mode the users have not message history.
 * Login - Users will receive an account with his 'Name' and 'Email' (provided by the user) to interact with the chatbot. In this mode the users have not message history.
