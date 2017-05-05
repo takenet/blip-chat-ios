@@ -22,7 +22,7 @@ Import the BLiP Chat for iOS into your project via CocoaPods:
 
 		target 'YourTarget' do
 		  use_frameworks!
-		  pod "BlipSDK"
+		  pod "BlipChat"
 		end
 
 3. Run the following command.
@@ -52,13 +52,13 @@ To use location cards set up the Usage Description Key for Location Service on *
 
 	**Swift**
 	```swift
-	import BlipSDK
+	import BlipChat
 	```
 
 	**Objective-C**
 
 	```Objective-C
-	#import "BlipSDK/BlipSDK-Swift.h"
+	#import "BlipChat/BlipChat-Swift.h"
 	```
 
 2. To open a new thread is very simple. Use **BlipClient** helper class and call *openBlipThread* method.
@@ -81,7 +81,7 @@ To use location cards set up the Usage Description Key for Location Service on *
 	```swift
 	import UIKit
 	import WebKit
-	import BlipSDK
+	import BlipChat
 
 	class ViewController: UIViewController {
 
@@ -108,7 +108,7 @@ To use location cards set up the Usage Description Key for Location Service on *
 
 	```Objective-C
 	#import "ViewController.h"
-	#import "BlipSDK/BlipSDK-Swift.h"
+	#import "BlipChat/BlipChat-Swift.h"
 
 	@interface ViewController ()
 	@end
@@ -184,7 +184,7 @@ options.windowTitle = @"Window Title";
 ```swift
 import UIKit
 import WebKit
-import BlipSDK
+import BlipChat
 
 class ViewController: UIViewController {
 	
@@ -218,7 +218,7 @@ class ViewController: UIViewController {
 
 ```Objective-C
 #import "ViewController.h"
-#import "BlipSDK/BlipSDK-Swift.h"
+#import "BlipChat/BlipChat-Swift.h"
 
 
 @interface ViewController ()
