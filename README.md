@@ -178,6 +178,22 @@ options.windowTitle = "Window Title"
 BlipOptions *options = [[BlipOptions alloc] init];
 options.windowTitle = @"Window Title";
 ```
+### Hiding Menu
+
+BLiP Chat has a menu inside the chat view that can be hidden. To do that you only need to set hideMenu property of BlipOptions. *This menu is visible by default.*
+
+**Swift**
+```swift
+let options = BlipOptions()
+options.hideMenu = true
+```
+
+**Objective-C**
+
+```Objective-C
+BlipOptions *options = [[BlipOptions alloc] init];
+options.hideMenu = true;
+```
 ### Example setting window title and using Dev auth type:
 
 **Swift**
@@ -199,12 +215,13 @@ class ViewController: UIViewController {
                                   userName: "user-name",
                                   userEmail: "user-email")
 		options.windowTitle = "window-title"
+		options.hideMenu = true
 
 		do {
-            try BlipClient.openBlipThread(myView: self, apiKey: "your-api-key", options: options)
-        } catch {
-            print (error.localizedDescription)
-        }
+        		try BlipClient.openBlipThread(myView: self, apiKey: "your-api-key", options: options)
+        	} catch {
+            		print (error.localizedDescription)
+        	}
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -236,6 +253,7 @@ class ViewController: UIViewController {
     options.userName = @"user-name";
     options.userEmail = @"user-email";
     options.windowTitle = @"window-title";
+    options.hideMenu = true;
     
     [BlipClient openBlipThreadWithMyView:self apiKey:(NSString*) @"your-api-key" options:options error: nil];
 }
