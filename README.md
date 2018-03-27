@@ -234,7 +234,7 @@ class ViewController: UIViewController {
 
 ```Objective-C
 #import "ViewController.h"
-#import "BlipChat/BlipChat-Swift.h"
+#import "BlipChat/BlipChat.h"
 
 
 @interface ViewController ()
