@@ -117,7 +117,7 @@ To use location cards set up the Usage Description Key for Location Service on *
 
 	- (void)viewDidAppear:(BOOL)animated {
 		[super viewDidAppear: animated];
-		[BlipClient openBlipThreadWithMyView:self appKey:(NSString*) @"your-api-key" options:nil error: nil];
+		[BlipClient openBlipThreadWithMyView:self appKey:@"your-app-key" options:nil error: nil];
 	}
 
 	- (void)didReceiveMemoryWarning {
@@ -213,8 +213,8 @@ class ViewController: UIViewController {
 	override func viewDidAppear(_ animated: Bool) {
 		let authConfig = AuthConfig(authType: .Dev, userIdentity: "user-identifier", userPassword: "user-password")
 		let account = Account(fullname: "user-name", email: "user-email")
+		let options = BlipOptions(authType: authConfig, account: account)
 		options.windowTitle = "window-title"
-		options = BlipOptions(authType: authConfig, account: account)
 		
 		do {
         		try BlipClient.openBlipThread(myView: self, appKey: "your-app-key", options: options)
@@ -247,8 +247,8 @@ class ViewController: UIViewController {
 
 	AuthConfig *authConfig = [[AuthConfig alloc] initWithAuthType:AuthTypeDev userIdentity:@"user-identifier" userPassword:@"user-password"];
 	Account *account = [[Account alloc] initWithFullname:@"user-name" 	email:@"user-email"];
-	options = [options initWithAuthType:authConfig account:account];
-    options.windowTitle = @"window-title";
+	BlipOptions *options = [[BlipOptions alloc] initWithAuthType:authConfig account:account];
+	options.windowTitle = @"window-title";
     
     [BlipClient openBlipThreadWithMyView:self appKey: @"your-app-key" options:options error: nil];
 }
