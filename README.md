@@ -58,20 +58,20 @@ To use location cards set up the Usage Description Key for Location Service on *
 	**Objective-C**
 
 	```Objective-C
-	#import "BlipChat/BlipChat-Swift.h"
+	#import "BlipChat/BlipChat.h"
 	```
 
 2. To open a new thread is very simple. Use **BlipClient** helper class and call *openBlipThread* method.
 
 	**Swift**
 	```swift
-	BlipClient.openBlipThread(myView: self, apiKey: "your-api-key", options: nil)
+	BlipClient.openBlipThread(myView: self, appKey: "your-app-key", options: nil)
 	```
 
 	**Objective-C**
 
 	```Objective-C
-	[BlipClient openBlipThreadWithMyView:self apiKey:(NSString*) @"your-api-key" options:options error: nil];
+	[BlipClient openBlipThreadWithMyView:self appKey:(NSString*) @"your-api-key" options:options error: nil];
 	```
 	Obs: In Objective-C the method name is *openBlipThreadWithMyView*
 	
@@ -91,7 +91,7 @@ To use location cards set up the Usage Description Key for Location Service on *
 
 		override func viewDidAppear(_ animated: Bool) {
 			do {
-            	try BlipClient.openBlipThread(myView: self, apiKey: "your-api-key", options: nil)
+            	try BlipClient.openBlipThread(myView: self, appKey: "your-api-key", options: nil)
 			} catch {
 				print (error.localizedDescription)
 			}
@@ -108,7 +108,7 @@ To use location cards set up the Usage Description Key for Location Service on *
 
 	```Objective-C
 	#import "ViewController.h"
-	#import "BlipChat/BlipChat-Swift.h"
+	#import "BlipChat/BlipChat.h"
 
 	@interface ViewController ()
 	@end
@@ -117,7 +117,7 @@ To use location cards set up the Usage Description Key for Location Service on *
 
 	- (void)viewDidAppear:(BOOL)animated {
 		[super viewDidAppear: animated];
-		[BlipClient openBlipThreadWithMyView:self apiKey:(NSString*) @"your-api-key" options:nil error: nil];
+		[BlipClient openBlipThreadWithMyView:self appKey:(NSString*) @"your-api-key" options:nil error: nil];
 	}
 
 	- (void)didReceiveMemoryWarning {
@@ -131,35 +131,52 @@ To use location cards set up the Usage Description Key for Location Service on *
 
 ### Defining authentication type
 
-BLiP Chat iOS sdk supports three different user authentication types. It is possible to define which authentication method will be used to identify your client.
+BLiP Chat iOS sdk supports two different user authentication types. It is possible to define which authentication method will be used to identify your client.
 
 * Guest - Users will receive a guest account to interact with the chatbot. In this mode the users have not message history.
-* Login - Users will receive an account with his 'Name' and 'Email' (provided by the user) to interact with the chatbot. In this mode the users have not message history.
-* Dev - Users will receive an account identified by developer to interact with the chatbot. User data must be provided passing a BlipOptions instance as parameter on *BlipClient.openThread* method. You can set 4 properties: `userIdentifier`, `userPassword`, `userName` and `userEmail`. `UserIdentifier` and `userPassword` are **required**. In this mode the users have message history.
+* Dev - Users will receive an account identified by developer to interact with the chatbot. User data must be provided passing a BlipOptions instance as parameter on *BlipClient.openThread* method. You must set 2 properties: `userIdentity`, `userPassword`. In this mode the users have message history.
 
-To define what user authetication type use the AuthTypeProvider.AuthType enum on authType propertie of BlipOptions. When using Swift, possible values for authType are: `.Guest`, `.Login` and `.Dev`. When using Objective-C, possible values are: `AuthTypeGuest`, `AuthTypeLogin` and `AuthTypeDev`.
+To define what user authetication type use the AuthTypeProvider.AuthType enum on authType propertie of BlipOptions. When using Swift, possible values for authType are: `.Guest` and `.Dev`. When using Objective-C, possible values are: `AuthTypeGuest` and `AuthTypeDev`.
 
 Note: Guest type will be used as default If you do not define 'authType'.
+
+Is also possible to specify the user's informations. For you must create an `Account` object.
+
 
 **Swift**
 
 ```swift
- let options = BlipOptions(authType: .Dev,
-                                  userIdentifier: "user-identifier",
-                                  userPassword: "user-password",
-                                  userName: "user-name",
-                                  userEmail: "user-email")
+let authConfig = AuthConfig(authType: .Dev, userIdentity: "user-identifier", userPassword: "user-password")
+options = BlipOptions(authType: authConfig, account: nil)
 ```
 
 **Objective-C**
 
 ```Objective-C
-BlipOptions *options = [[BlipOptions alloc] init];
-options.authType = AuthTypeDev;
-options.userIdentifier = @"user-identifier";
-options.userPassword = @"user-password";
-options.userName = @"user-name";
-options.userEmail = @"user-email";
+AuthConfig *authConfig = [[AuthConfig alloc] initWithAuthType:AuthTypeDev userIdentity:@"user-identifier" userPassword:@"user-password"];
+options = [[BlipOptions alloc] initWithAuthType:authConfig account: nil];
+```
+
+### Specifying user data
+BLiP Chat lets you to specify user's data like `fullname`, `email` and others.
+For mor details about what is supported check [Lime Documentation][4].
+
+To set user data just create an `Account` object and use pass it to `BlipOptions`.
+
+**Swift**
+
+```swift
+let authConfig = AuthConfig(authType: .Dev, userIdentity: "user-identifier", userPassword: "user-password")
+let account = Account(fullname: "user-name", email: "user-email")
+options = BlipOptions(authType: authConfig, account: account)
+```
+
+**Objective-C**
+
+```Objective-C
+AuthConfig *authConfig = [[AuthConfig alloc] initWithAuthType:AuthTypeDev userIdentity:@"user-identifier" userPassword:@"user-password"];
+Account *account = [[Account alloc] initWithFullname:@"user-name" email:@"user-email"];
+options = [[BlipOptions alloc] initWithAuthType:authConfig account: account];
 ```
 
 ### Setting a title for chat window 
@@ -178,22 +195,7 @@ options.windowTitle = "Window Title"
 BlipOptions *options = [[BlipOptions alloc] init];
 options.windowTitle = @"Window Title";
 ```
-### Hiding Menu
 
-BLiP Chat has a menu inside the chat view that can be hidden. To do that you only need to set hideMenu property of BlipOptions. *This menu is visible by default.*
-
-**Swift**
-```swift
-let options = BlipOptions()
-options.hideMenu = true
-```
-
-**Objective-C**
-
-```Objective-C
-BlipOptions *options = [[BlipOptions alloc] init];
-options.hideMenu = true;
-```
 ### Example setting window title and using Dev auth type:
 
 **Swift**
@@ -209,16 +211,13 @@ class ViewController: UIViewController {
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
-		let options = BlipOptions(authType: .Dev,
-                                  userIdentifier: "user-identifier",
-                                  userPassword: "user-password",
-                                  userName: "user-name",
-                                  userEmail: "user-email")
+		let authConfig = AuthConfig(authType: .Dev, userIdentity: "user-identifier", userPassword: "user-password")
+		let account = Account(fullname: "user-name", email: "user-email")
 		options.windowTitle = "window-title"
-		options.hideMenu = true
-
+		options = BlipOptions(authType: authConfig, account: account)
+		
 		do {
-        		try BlipClient.openBlipThread(myView: self, apiKey: "your-api-key", options: options)
+        		try BlipClient.openBlipThread(myView: self, appKey: "your-app-key", options: options)
         	} catch {
             		print (error.localizedDescription)
         	}
@@ -246,16 +245,12 @@ class ViewController: UIViewController {
 - (void)viewDidAppear:(BOOL)animated {
 	[super viewDidAppear: animated];
 
-	BlipOptions *options = [[BlipOptions alloc] init];
-    options.authType = AuthTypeDev;
-    options.userIdentifier = @"user-identifier";
-    options.userPassword = @"user-password";
-    options.userName = @"user-name";
-    options.userEmail = @"user-email";
+	AuthConfig *authConfig = [[AuthConfig alloc] initWithAuthType:AuthTypeDev userIdentity:@"user-identifier" userPassword:@"user-password"];
+	Account *account = [[Account alloc] initWithFullname:@"user-name" 	email:@"user-email"];
+	options = [options initWithAuthType:authConfig account:account];
     options.windowTitle = @"window-title";
-    options.hideMenu = true;
     
-    [BlipClient openBlipThreadWithMyView:self apiKey:(NSString*) @"your-api-key" options:options error: nil];
+    [BlipClient openBlipThreadWithMyView:self appKey: @"your-app-key" options:options error: nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -322,4 +317,5 @@ License
  [1]: https://blip.ai
  [2]: https://portal.blip.ai/#/docs/home
  [3]: http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22net.take%22
+ [4]: http://limeprotocol.org
  [snap]: https://oss.sonatype.org/content/repositories/snapshots/
