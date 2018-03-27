@@ -296,7 +296,7 @@ If this occurs you have two options:
 ### Support
 -------
 
-  iOS 10.
+  iOS 10+.
 
 License
 -------
