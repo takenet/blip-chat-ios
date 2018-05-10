@@ -2,7 +2,7 @@
 BLiP Chat for iOS
 ======
 
-SDK to easily add BLiP Chat widget in your iOS app. For more information see [BLiP portal][1] and [BLiP documentation][2]. See supported versions [here](#support).
+SDK to easily add BLiP Chat's widget to your iOS app. For more information, see [BLiP portal][1] and [BLiP documentation][2]. See supported versions [here](#support).
 
 Installation
 --------
@@ -40,15 +40,15 @@ How to use
 
 ### Setting your SDK
 
-After including sdk reference on your project you need to get your api key on [BLiP portal][3]. Go to the left menu and access `Publications > Blip Chat`. You will also need to add your iOS App Id on the `Domains` section, in order to enable your chatbot in your app.
+After including the SDK reference in your project, you need to get your API key from [BLiP portal][3]. Go to the left menu and access `Publications > Blip Chat`. You will also need to sign up your iOS App Id on the `Domains` section in order to enable the chatbot in your app.
 
-To use location cards set up the Usage Description Key for Location Service on **info.plist** file. Use the key *Privacy - Location When In Use Usage Description* and set a message to ask for user's permission to use location. 
+To use location cards, set up the Usage Description Key for Location Service on **info.plist** file. Use the key *Privacy - Location When In Use Usage Description* and set a message to ask for user's permission to use their location. 
 
 ![](images/location.png)
 
 ### Opening a new Blip Conversation
 
-1. Importing BlipSKD
+1. Importing BLiP SDK
 
 	**Swift**
 	```swift
@@ -61,7 +61,7 @@ To use location cards set up the Usage Description Key for Location Service on *
 	#import "BlipChat/BlipChat.h"
 	```
 
-2. To open a new thread is very simple. Use **BlipClient** helper class and call *openBlipThread* method.
+2. To open a new thread is very simple: use **BlipClient** helper class and call *openBlipThread* method.
 
 	**Swift**
 	```swift
@@ -73,9 +73,9 @@ To use location cards set up the Usage Description Key for Location Service on *
 	```Objective-C
 	[BlipClient openBlipThreadWithMyView:self appKey:(NSString*) @"your-api-key" options:options error: nil];
 	```
-	Obs: In Objective-C the method name is *openBlipThreadWithMyView*
+	Obs: In Objective-C, the method name is *openBlipThreadWithMyView*
 	
-	For instance, imagine that you want to establish a new conversation between your customer and your chatbot, when your ViewController is loaded.
+	For instance, imagine that you want to establish a new conversation between customer and chatbot when the ViewController is loaded.
 	
 	**Swift**
 	```swift
@@ -131,17 +131,14 @@ To use location cards set up the Usage Description Key for Location Service on *
 
 ### Defining authentication type
 
-BLiP Chat iOS sdk supports two different user authentication types. It is possible to define which authentication method will be used to identify your client.
+BLiP Chat iOS SDK supports two different user authentication types. It is possible to define which authentication method will be used to identify your client.
 
-* Guest - Users will receive a guest account to interact with the chatbot. In this mode the users have not message history.
-* Dev - Users will receive an account identified by developer to interact with the chatbot. User data must be provided passing a BlipOptions instance as parameter on *BlipClient.openThread* method. You must set 2 properties: `userIdentity`, `userPassword`. In this mode the users have message history.
+* Guest - Users will receive a guest account to interact with the chatbot. In this mode, users will not have a message history.
+* Dev - Users will receive an account identified by developer to interact with the chatbot. User data must be provided passing a BlipOptions instance as parameter on *BlipClient.openThread* method. You must set 2 properties: `userIdentity`, `userPassword`. In this mode, users have message history.
 
-To define what user authetication type use the AuthTypeProvider.AuthType enum on authType propertie of BlipOptions. When using Swift, possible values for authType are: `.Guest` and `.Dev`. When using Objective-C, possible values are: `AuthTypeGuest` and `AuthTypeDev`.
+To define the user authetication type, use the AuthTypeProvider.AuthType enum on authType property of BlipOptions. When using Swift, possible values for authType are: `.Guest` and `.Dev`. When using Objective-C, possible values are: `AuthTypeGuest` and `AuthTypeDev`.
 
-Note: Guest type will be used as default If you do not define 'authType'.
-
-Is also possible to specify the user's informations. For you must create an `Account` object.
-
+Note: Guest type will be used if 'authType' is not defined.
 
 **Swift**
 
@@ -158,10 +155,10 @@ options = [[BlipOptions alloc] initWithAuthType:authConfig account: nil];
 ```
 
 ### Specifying user data
-BLiP Chat lets you to specify user's data like `fullname`, `email` and others.
-For mor details about what is supported check [Lime Documentation][4].
+BLiP Chat allows specification of users' data like `fullname`, `email` and others.
+For more details on possible properties and support, check the [Lime Documentation][4].
 
-To set user data just create an `Account` object and use pass it to `BlipOptions`.
+To set user data, just create an `Account` object and pass it as a parameter to `BlipOptions`.
 
 **Swift**
 
@@ -196,7 +193,7 @@ BlipOptions *options = [[BlipOptions alloc] init];
 options.windowTitle = @"Window Title";
 ```
 
-### Example setting window title and using Dev auth type:
+### Setting window title with Dev auth type:
 
 **Swift**
 ```swift
@@ -266,11 +263,11 @@ Troubleshooting
 
 A -> **dyld: Library not loaded: @rpath/libswiftCore.dylib / Image not found**
 
-Objective-C projects can present an error about library not loaded
+Objective-C projects can present an error about library not loaded.
 
-If this occurs follow this steps:
+If this occurs, follow the following steps:
 
-1) Set your build setting variable *Runpath Search Paths* to **@executable_path/Frameworks**
+1) Set your build settings variable *Runpath Search Paths* to **@executable_path/Frameworks**
 
 your_target -> Build Settings -> Linking -> Runpath Search Paths
 
@@ -278,19 +275,19 @@ your_target -> Build Settings -> Linking -> Runpath Search Paths
 
 your_target -> Build Settings -> Build Options -> Always Embed Swift Standard Libraries
 
-For a more detailed explanation see [this thread](http://stackoverflow.com/questions/26104975/dyld-library-not-loaded-rpath-libswiftcore-dylib-image-not-found) on stackoverflow
+For a more detailed explanation, see [this thread](http://stackoverflow.com/questions/26104975/dyld-library-not-loaded-rpath-libswiftcore-dylib-image-not-found) on Stack Overflow.
 
 B -> **App Transport Security has blocked a HTTP (http://) resource**
 
-If this occurs you have two options:
+If this occurs, you have two options:
 
-1) Use only HTTPS resources on your chatbot
+1) Use only HTTPS resources on your chatbot.
 
 2) Add the key NSAppTransportSecurity to your app info.plist.
 
-* Open your Project info.plist file
+* Open your Project info.plist file.
 * Add a Key called NSAppTransportSecurity as a Dictionary.
-* Add a Subkey called NSAllowsArbitraryLoads as Boolean and set its value to YES as like following image.
+* Add a Subkey called NSAllowsArbitraryLoads as Boolean and set its value to YES, as shown in the image below.
 ![](images/transportSecurity.png)
 
 ### Support
