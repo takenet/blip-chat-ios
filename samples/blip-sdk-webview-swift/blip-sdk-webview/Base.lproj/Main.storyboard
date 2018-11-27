@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mUY-PT-koL">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="p7h-SW-48u">
+            <objects>
+                <navigationController id="mUY-PT-koL" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0hi-40-aN2">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.08658773892166316" green="0.10608867589929938" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="A99-D1-QGd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8be-9P-g8R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1328" y="161"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="blip_sdk_webview" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d0a-0g-lWP">
+                                <rect key="frame" x="115.5" y="108" width="89" height="30"/>
+                                <state key="normal" title="Second View"/>
+                                <connections>
+                                    <segue destination="oNA-Id-oaU" kind="show" id="maV-09-26f"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lmg-LZ-Y2e">
+                                <rect key="frame" x="128.5" y="158" width="63" height="30"/>
+                                <state key="normal" title="Dev Auth"/>
+                                <connections>
+                                    <action selector="openThread:" destination="BYZ-38-t0r" eventType="touchDown" id="uhP-3w-Iwt"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="d0a-0g-lWP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="44" id="FNA-T1-1JW"/>
+                            <constraint firstItem="lmg-LZ-Y2e" firstAttribute="centerX" secondItem="d0a-0g-lWP" secondAttribute="centerX" id="aFn-XH-cfS"/>
+                            <constraint firstItem="d0a-0g-lWP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gXO-ES-BrL"/>
+                            <constraint firstItem="lmg-LZ-Y2e" firstAttribute="top" secondItem="d0a-0g-lWP" secondAttribute="bottom" constant="20" id="j5e-Ga-PRU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="xvX-iI-vpb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-502" y="161"/>
+        </scene>
+        <!--Second View-->
+        <scene sceneID="mFF-fh-fwg">
+            <objects>
+                <viewController id="oNA-Id-oaU" customClass="ViewController" customModule="blip_sdk_webview" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RP6-ul-UMG"/>
+                        <viewControllerLayoutGuide type="bottom" id="Pc2-lQ-mWL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="D04-up-klR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egO-nA-Yxh">
+                                <rect key="frame" x="123.5" y="136" width="73" height="30"/>
+                                <state key="normal" title="Third View"/>
+                                <connections>
+                                    <segue destination="fNQ-MY-V5p" kind="show" id="EzV-FE-bGj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="egO-nA-Yxh" firstAttribute="centerX" secondItem="D04-up-klR" secondAttribute="centerX" id="a7j-W7-GL3"/>
+                            <constraint firstItem="egO-nA-Yxh" firstAttribute="top" secondItem="RP6-ul-UMG" secondAttribute="bottom" constant="72" id="kEH-Wm-qyM"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Second View" id="aoS-B1-B6d"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qQu-Dj-ONz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="406" y="161"/>
+        </scene>
+        <!--Third View-->
+        <scene sceneID="pHd-jX-mfA">
+            <objects>
+                <viewController id="fNQ-MY-V5p" customClass="ViewController" customModule="blip_sdk_webview" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4VR-s6-66D"/>
+                        <viewControllerLayoutGuide type="bottom" id="75X-VA-Jsq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Q43-cG-aaO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a50-xh-mn6">
+                                <rect key="frame" x="123" y="139" width="74" height="30"/>
+                                <state key="normal" title="Open Chat"/>
+                                <connections>
+                                    <action selector="openThread:" destination="fNQ-MY-V5p" eventType="touchUpInside" id="nYb-TI-X7G"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="a50-xh-mn6" firstAttribute="top" secondItem="4VR-s6-66D" secondAttribute="bottom" constant="75" id="d5H-MW-eEv"/>
+                            <constraint firstItem="a50-xh-mn6" firstAttribute="centerX" secondItem="Q43-cG-aaO" secondAttribute="centerX" id="n0k-wG-7NC"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Third View" id="ttO-ic-OmW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Ae-CB-0VJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1292" y="160.56971514242881"/>
+        </scene>
+    </scenes>
+</document>

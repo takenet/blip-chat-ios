@@ -1,0 +1,16 @@
+platform :ios, '10.0'
+
+target 'blip-sdk-objective-c' do
+  use_frameworks!
+
+  pod "BlipChat"
+
+  target 'blip-sdk-objective-cTests' do
+    inherit! :search_paths
+  end
+
+  target 'blip-sdk-objective-cUITests' do
+    inherit! :search_paths
+  end
+
+end

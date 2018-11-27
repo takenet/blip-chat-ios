@@ -1,0 +1,1077 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04EDA5B287A05F564DFAF5801E2B0A4F /* BlipChat-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C2EF09D34036BB72DFAE8E6598F6B3B /* BlipChat-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0DD8B4C5B3D27973AA506E468295F637 /* BlipErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9624FBBB959778B3A3BB9C20DA67702 /* BlipErrors.swift */; };
+		0E991EAF71E2B465DA05D20858A73EA6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		14423C099C65EC4D5F83BC7CFDF82AEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AEA63F55B19FE5444C8481D6A1AF52A /* Assets.xcassets */; };
+		161A9585AD4E26FD8539AD21899714C1 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBA51B3B34D751D6376098BE0099383 /* Account.swift */; };
+		1FD45461A9772DE96C40B41FE992B9D1 /* BlipChat.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2AC526B4C690CA3623C1277266714B94 /* BlipChat.bundle */; };
+		32E23FE807EA6F27EB74D8DA32267301 /* BlipSdkTemplate.html in Resources */ = {isa = PBXBuildFile; fileRef = DFE6CCA826E60ACB85D7768BF82A1AC6 /* BlipSdkTemplate.html */; };
+		4EDF3273415D033243F7F537D58C4D0D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		55EE6430F7F3159EF306A0CE1CE8BF0F /* Pods-blip-sdk-objective-c-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 91A8ED0DA135569FD85E34E88EB37788 /* Pods-blip-sdk-objective-c-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6218CAE6A6110AA5A42FDD2C51F39F72 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		65BCE3781F295DC01BEA292678F9B4EA /* ThreadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5204107C22908C5F95796BE7D2CD6BBF /* ThreadViewController.swift */; };
+		752D63A01DBF4C74F2ED0A0597D18D8A /* BlipWebViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0DBF1B25FE38049AA8E894770B5F78 /* BlipWebViewBuilder.swift */; };
+		7D8C0542FDE3376874DC78375EE5D6D8 /* Pods-blip-sdk-objective-c-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E9ED1D62D0A3B10EC3C2764DB787E6 /* Pods-blip-sdk-objective-c-dummy.m */; };
+		90F9CB5D38CCE48066454F53F39C3FCC /* AuthType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8A19CE3479C05E248B7EF00FCA2E53 /* AuthType.swift */; };
+		971903E2B9789AF4F57E1BDB48615DF9 /* Pods-blip-sdk-objective-cTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C1123781DE823D3C5383FDD1F645C6A /* Pods-blip-sdk-objective-cTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A1B023A5A6D973904CE0097F6BFABB0D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91966CDC70401DD062E0411B9021B199 /* Constants.swift */; };
+		CA03461D842ABDEB838892F957ED29A0 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBB8E4DCE48C1B86099D5A4A60F60D4 /* StringExtension.swift */; };
+		CBB7B09847E83E8F387FA78E47C1E51A /* Pods-blip-sdk-objective-cTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C1F5475742A2102A2A8FFF3B163892 /* Pods-blip-sdk-objective-cTests-dummy.m */; };
+		CCABC3F22E9F89C3F839A25CFCD5F47A /* Pods-blip-sdk-objective-cUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D742BB1DD6E3607F0C4E75EBC35992C2 /* Pods-blip-sdk-objective-cUITests-dummy.m */; };
+		D42E456BB8C76BCEC7121CA9F55C6706 /* Storyboard.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = 9D791498676B10F01FFBC73E2F564993 /* Storyboard.storyboard */; };
+		D49B12DA58EB82B44ADD9E42EDD41BE9 /* BlipChat-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BD35EECFD4EF91DCCDF9EDC2137C0594 /* BlipChat-dummy.m */; };
+		E6F4671BC26DDD3C961E4E74A39F2E55 /* BlipClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A44C577A3C39AD65DCA7464DAD0A4A /* BlipClient.swift */; };
+		E78043988218F6AB14217C24B883142F /* Pods-blip-sdk-objective-cUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8CC9F7109C62BB958E68DF4AAA60F2C2 /* Pods-blip-sdk-objective-cUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EDA69397D4F1C47C586C064CF1F2EECD /* NavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167E990A25C0E5980E9115C6D41D88D4 /* NavigationControllerExtension.swift */; };
+		EEC4A927618D0E1D413D346134B3A7E2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		F64725113A6DB505E38A6523CE30D609 /* BlipOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776B6132E1720438535ABB5549389D3A /* BlipOptions.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6B30F8707CE8BB4533C8B72816ED22C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9BFD70F7D227C521D50EF3F8CBBDEFD6;
+			remoteInfo = "Pods-blip-sdk-objective-c";
+		};
+		A567BFA93B2855C97E9FDF16577F9A05 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1DA74855A636EDAE90F9BED3EDA6E7DD;
+			remoteInfo = BlipChat;
+		};
+		C78110E145AEF02B09838362FAD409F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7D8D6FBBF855E72E03C9B2F41838B0AC;
+			remoteInfo = "BlipChat-BlipChat";
+		};
+		EF14085C295D7C3B7AD12600218C1E21 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9BFD70F7D227C521D50EF3F8CBBDEFD6;
+			remoteInfo = "Pods-blip-sdk-objective-c";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		09611083740E61EF2916DC52D25F7F72 /* Pods-blip-sdk-objective-cTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-blip-sdk-objective-cTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		0AB064DDD8DFA9D3A42AE47C7ADEDDA1 /* Pods-blip-sdk-objective-c.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-blip-sdk-objective-c.debug.xcconfig"; sourceTree = "<group>"; };
+		0C2EF09D34036BB72DFAE8E6598F6B3B /* BlipChat-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BlipChat-umbrella.h"; sourceTree = "<group>"; };
+		167E990A25C0E5980E9115C6D41D88D4 /* NavigationControllerExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NavigationControllerExtension.swift; path = src/BlipChat/NavigationControllerExtension.swift; sourceTree = "<group>"; };
+		1C5A18C13B1563525858CFC8B2A46B72 /* Pods-blip-sdk-objective-c-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-blip-sdk-objective-c-acknowledgements.plist"; sourceTree = "<group>"; };
+		1C9D2BA351C94A002B82EE1C8EFC20D1 /* Pods-blip-sdk-objective-c-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-blip-sdk-objective-c-frameworks.sh"; sourceTree = "<group>"; };
+		1DBA51B3B34D751D6376098BE0099383 /* Account.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Account.swift; path = src/BlipChat/Account.swift; sourceTree = "<group>"; };
+		265507B52548CEA9F72042F940C63C5E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2AC526B4C690CA3623C1277266714B94 /* BlipChat.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = BlipChat.bundle; path = "BlipChat-BlipChat.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AEA63F55B19FE5444C8481D6A1AF52A /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = src/BlipChat/Assets.xcassets; sourceTree = "<group>"; };
+		2C1123781DE823D3C5383FDD1F645C6A /* Pods-blip-sdk-objective-cTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-blip-sdk-objective-cTests-umbrella.h"; sourceTree = "<group>"; };
+		2E4F56A54A1DF1AD10E7363F8C7D2C14 /* Pods-blip-sdk-objective-cTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-blip-sdk-objective-cTests.release.xcconfig"; sourceTree = "<group>"; };
+		2F0DBF1B25FE38049AA8E894770B5F78 /* BlipWebViewBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlipWebViewBuilder.swift; path = src/BlipChat/BlipWebViewBuilder.swift; sourceTree = "<group>"; };
+		32A9CFC477F4F625894BA9E659A71037 /* ResourceBundle-BlipChat-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-BlipChat-Info.plist"; sourceTree = "<group>"; };
+		38F984F38F6F3B74B78248974462AB53 /* Pods-blip-sdk-objective-cTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-blip-sdk-objective-cTests-resources.sh"; sourceTree = "<group>"; };
+		3CDCBF91B5C30CC15D76FF3DCF1C68FE /* Pods-blip-sdk-objective-cTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-blip-sdk-objective-cTests.modulemap"; sourceTree = "<group>"; };
+		3EE240669EE23A9C0E93DE8DC71CD803 /* Pods-blip-sdk-objective-cUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-blip-sdk-objective-cUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		4431F350ABEEF06117847F1AEB4C9795 /* BlipChat.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = BlipChat.modulemap; sourceTree = "<group>"; };
+		448FB765BA7B7D034AA32F5BFFE51622 /* BlipChat.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BlipChat.xcconfig; sourceTree = "<group>"; };
+		45794A9074900083327DD5E9E20BEADB /* Pods-blip-sdk-objective-cUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-blip-sdk-objective-cUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		46E9ED1D62D0A3B10EC3C2764DB787E6 /* Pods-blip-sdk-objective-c-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-blip-sdk-objective-c-dummy.m"; sourceTree = "<group>"; };
+		511B5FCE7E168C8488B6AB126A87AC3D /* Pods-blip-sdk-objective-c.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-blip-sdk-objective-c.release.xcconfig"; sourceTree = "<group>"; };
+		5204107C22908C5F95796BE7D2CD6BBF /* ThreadViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ThreadViewController.swift; path = src/BlipChat/ThreadViewController.swift; sourceTree = "<group>"; };
+		523B20CDFA949162AF1933A4435D7F26 /* Pods-blip-sdk-objective-cUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-blip-sdk-objective-cUITests.modulemap"; sourceTree = "<group>"; };
+		5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		69D594A22C364FF647B399273791F1F0 /* Pods_blip_sdk_objective_cUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_blip_sdk_objective_cUITests.framework; path = "Pods-blip-sdk-objective-cUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		76AE9D8A85683C18102B5A1BC0080633 /* Pods-blip-sdk-objective-cUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-blip-sdk-objective-cUITests-frameworks.sh"; sourceTree = "<group>"; };
+		776B6132E1720438535ABB5549389D3A /* BlipOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlipOptions.swift; path = src/BlipChat/BlipOptions.swift; sourceTree = "<group>"; };
+		79A44C577A3C39AD65DCA7464DAD0A4A /* BlipClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlipClient.swift; path = src/BlipChat/BlipClient.swift; sourceTree = "<group>"; };
+		7AA6CAA2D7F93D76F332B31E374B58F5 /* Pods-blip-sdk-objective-c.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-blip-sdk-objective-c.modulemap"; sourceTree = "<group>"; };
+		85786F6D2FA0E61D1E7F543686178D40 /* Pods-blip-sdk-objective-c-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-blip-sdk-objective-c-acknowledgements.markdown"; sourceTree = "<group>"; };
+		88C1F5475742A2102A2A8FFF3B163892 /* Pods-blip-sdk-objective-cTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-blip-sdk-objective-cTests-dummy.m"; sourceTree = "<group>"; };
+		894A86EBCD3F00CB6079DF9E256130C3 /* Pods-blip-sdk-objective-c-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-blip-sdk-objective-c-resources.sh"; sourceTree = "<group>"; };
+		8AC37F7AFD9CC9630C0F6EA63412D235 /* Pods-blip-sdk-objective-cTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-blip-sdk-objective-cTests-frameworks.sh"; sourceTree = "<group>"; };
+		8CC9F7109C62BB958E68DF4AAA60F2C2 /* Pods-blip-sdk-objective-cUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-blip-sdk-objective-cUITests-umbrella.h"; sourceTree = "<group>"; };
+		8E90239C7624A9672A853FE235845CE6 /* Pods-blip-sdk-objective-cTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-blip-sdk-objective-cTests.debug.xcconfig"; sourceTree = "<group>"; };
+		90C11B3B4573754720F8AB9AE5EAA2F9 /* Pods_blip_sdk_objective_cTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_blip_sdk_objective_cTests.framework; path = "Pods-blip-sdk-objective-cTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		91966CDC70401DD062E0411B9021B199 /* Constants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = src/BlipChat/Constants.swift; sourceTree = "<group>"; };
+		91A8ED0DA135569FD85E34E88EB37788 /* Pods-blip-sdk-objective-c-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-blip-sdk-objective-c-umbrella.h"; sourceTree = "<group>"; };
+		922C1DE425112E6760E6F8A8D3F6842F /* BlipChat-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BlipChat-prefix.pch"; sourceTree = "<group>"; };
+		9249F71B333134E6AEAFA663C04E1034 /* BlipChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BlipChat.framework; path = BlipChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D791498676B10F01FFBC73E2F564993 /* Storyboard.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = Storyboard.storyboard; path = src/BlipChat/Storyboard.storyboard; sourceTree = "<group>"; };
+		B0B09F0024873AE53B98FF4EB7513F9D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1003922C9FEDEFB8D80FB6B28F52696 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B2330FED289B907AA3A37AE0A3DCBF6D /* Pods-blip-sdk-objective-cUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-blip-sdk-objective-cUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		BCBB8E4DCE48C1B86099D5A4A60F60D4 /* StringExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StringExtension.swift; path = src/BlipChat/StringExtension.swift; sourceTree = "<group>"; };
+		BD35EECFD4EF91DCCDF9EDC2137C0594 /* BlipChat-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BlipChat-dummy.m"; sourceTree = "<group>"; };
+		CB6D3C98FBBE87CBD604DA41989DC31B /* Pods_blip_sdk_objective_c.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_blip_sdk_objective_c.framework; path = "Pods-blip-sdk-objective-c.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5C95422DD2CDB4D97DC9B9D4715B237 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D742BB1DD6E3607F0C4E75EBC35992C2 /* Pods-blip-sdk-objective-cUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-blip-sdk-objective-cUITests-dummy.m"; sourceTree = "<group>"; };
+		DBA76F9DF5B4A32F48FBB1674C5CCA1C /* Pods-blip-sdk-objective-cTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-blip-sdk-objective-cTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		DCA816D4350DF51D96588408A4B22AB6 /* Pods-blip-sdk-objective-cUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-blip-sdk-objective-cUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DFE6CCA826E60ACB85D7768BF82A1AC6 /* BlipSdkTemplate.html */ = {isa = PBXFileReference; includeInIndex = 1; name = BlipSdkTemplate.html; path = src/BlipChat/BlipSdkTemplate.html; sourceTree = "<group>"; };
+		E108E2639BDD4AEA0C65BE143E2B1D1D /* Pods-blip-sdk-objective-cUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-blip-sdk-objective-cUITests-resources.sh"; sourceTree = "<group>"; };
+		E9624FBBB959778B3A3BB9C20DA67702 /* BlipErrors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlipErrors.swift; path = src/BlipChat/BlipErrors.swift; sourceTree = "<group>"; };
+		FB8A19CE3479C05E248B7EF00FCA2E53 /* AuthType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AuthType.swift; path = src/BlipChat/AuthType.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2B35218F0922936E5691839569C1F14F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E991EAF71E2B465DA05D20858A73EA6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		332814B9D17437E139948BB165B0EEE0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6218CAE6A6110AA5A42FDD2C51F39F72 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33E1F636D9E723671CDA7B5AAF291D11 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7C97A8E7B43C4F0B5571BD00ED332E55 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEC4A927618D0E1D413D346134B3A7E2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEB57AD044F0666707A43EB6413B3FA8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4EDF3273415D033243F7F537D58C4D0D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		157ABA7ADF123A262397FA1E5E4AD7A5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F009804BE920EF70DE31A72552E7AC3D /* BlipChat */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5E0D919E635D23B70123790B8308F8EF /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				157ABA7ADF123A262397FA1E5E4AD7A5 /* Pods */,
+				7EC131DC62F898CA25421A43A1AEC109 /* Products */,
+				F8709552A7AACF4A71EC0B7C7B9A2DE8 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		7EC131DC62F898CA25421A43A1AEC109 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2AC526B4C690CA3623C1277266714B94 /* BlipChat.bundle */,
+				9249F71B333134E6AEAFA663C04E1034 /* BlipChat.framework */,
+				CB6D3C98FBBE87CBD604DA41989DC31B /* Pods_blip_sdk_objective_c.framework */,
+				90C11B3B4573754720F8AB9AE5EAA2F9 /* Pods_blip_sdk_objective_cTests.framework */,
+				69D594A22C364FF647B399273791F1F0 /* Pods_blip_sdk_objective_cUITests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		838172A90A57D72FAE502ABF033565EC /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				4431F350ABEEF06117847F1AEB4C9795 /* BlipChat.modulemap */,
+				448FB765BA7B7D034AA32F5BFFE51622 /* BlipChat.xcconfig */,
+				BD35EECFD4EF91DCCDF9EDC2137C0594 /* BlipChat-dummy.m */,
+				922C1DE425112E6760E6F8A8D3F6842F /* BlipChat-prefix.pch */,
+				0C2EF09D34036BB72DFAE8E6598F6B3B /* BlipChat-umbrella.h */,
+				B0B09F0024873AE53B98FF4EB7513F9D /* Info.plist */,
+				32A9CFC477F4F625894BA9E659A71037 /* ResourceBundle-BlipChat-Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/BlipChat";
+			sourceTree = "<group>";
+		};
+		8603F17DE6E37450CD9FABB1830540F2 /* Pods-blip-sdk-objective-cUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D5C95422DD2CDB4D97DC9B9D4715B237 /* Info.plist */,
+				523B20CDFA949162AF1933A4435D7F26 /* Pods-blip-sdk-objective-cUITests.modulemap */,
+				3EE240669EE23A9C0E93DE8DC71CD803 /* Pods-blip-sdk-objective-cUITests-acknowledgements.markdown */,
+				B2330FED289B907AA3A37AE0A3DCBF6D /* Pods-blip-sdk-objective-cUITests-acknowledgements.plist */,
+				D742BB1DD6E3607F0C4E75EBC35992C2 /* Pods-blip-sdk-objective-cUITests-dummy.m */,
+				76AE9D8A85683C18102B5A1BC0080633 /* Pods-blip-sdk-objective-cUITests-frameworks.sh */,
+				E108E2639BDD4AEA0C65BE143E2B1D1D /* Pods-blip-sdk-objective-cUITests-resources.sh */,
+				8CC9F7109C62BB958E68DF4AAA60F2C2 /* Pods-blip-sdk-objective-cUITests-umbrella.h */,
+				45794A9074900083327DD5E9E20BEADB /* Pods-blip-sdk-objective-cUITests.debug.xcconfig */,
+				DCA816D4350DF51D96588408A4B22AB6 /* Pods-blip-sdk-objective-cUITests.release.xcconfig */,
+			);
+			name = "Pods-blip-sdk-objective-cUITests";
+			path = "Target Support Files/Pods-blip-sdk-objective-cUITests";
+			sourceTree = "<group>";
+		};
+		9CEBD09463E67B84D3AF9C02D017527E /* Pods-blip-sdk-objective-c */ = {
+			isa = PBXGroup;
+			children = (
+				B1003922C9FEDEFB8D80FB6B28F52696 /* Info.plist */,
+				7AA6CAA2D7F93D76F332B31E374B58F5 /* Pods-blip-sdk-objective-c.modulemap */,
+				85786F6D2FA0E61D1E7F543686178D40 /* Pods-blip-sdk-objective-c-acknowledgements.markdown */,
+				1C5A18C13B1563525858CFC8B2A46B72 /* Pods-blip-sdk-objective-c-acknowledgements.plist */,
+				46E9ED1D62D0A3B10EC3C2764DB787E6 /* Pods-blip-sdk-objective-c-dummy.m */,
+				1C9D2BA351C94A002B82EE1C8EFC20D1 /* Pods-blip-sdk-objective-c-frameworks.sh */,
+				894A86EBCD3F00CB6079DF9E256130C3 /* Pods-blip-sdk-objective-c-resources.sh */,
+				91A8ED0DA135569FD85E34E88EB37788 /* Pods-blip-sdk-objective-c-umbrella.h */,
+				0AB064DDD8DFA9D3A42AE47C7ADEDDA1 /* Pods-blip-sdk-objective-c.debug.xcconfig */,
+				511B5FCE7E168C8488B6AB126A87AC3D /* Pods-blip-sdk-objective-c.release.xcconfig */,
+			);
+			name = "Pods-blip-sdk-objective-c";
+			path = "Target Support Files/Pods-blip-sdk-objective-c";
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5E0D919E635D23B70123790B8308F8EF /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CD2A3754116807FDFA77ED5C0C6A9CB3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2AEA63F55B19FE5444C8481D6A1AF52A /* Assets.xcassets */,
+				DFE6CCA826E60ACB85D7768BF82A1AC6 /* BlipSdkTemplate.html */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		F009804BE920EF70DE31A72552E7AC3D /* BlipChat */ = {
+			isa = PBXGroup;
+			children = (
+				1DBA51B3B34D751D6376098BE0099383 /* Account.swift */,
+				FB8A19CE3479C05E248B7EF00FCA2E53 /* AuthType.swift */,
+				79A44C577A3C39AD65DCA7464DAD0A4A /* BlipClient.swift */,
+				E9624FBBB959778B3A3BB9C20DA67702 /* BlipErrors.swift */,
+				776B6132E1720438535ABB5549389D3A /* BlipOptions.swift */,
+				2F0DBF1B25FE38049AA8E894770B5F78 /* BlipWebViewBuilder.swift */,
+				91966CDC70401DD062E0411B9021B199 /* Constants.swift */,
+				167E990A25C0E5980E9115C6D41D88D4 /* NavigationControllerExtension.swift */,
+				9D791498676B10F01FFBC73E2F564993 /* Storyboard.storyboard */,
+				BCBB8E4DCE48C1B86099D5A4A60F60D4 /* StringExtension.swift */,
+				5204107C22908C5F95796BE7D2CD6BBF /* ThreadViewController.swift */,
+				CD2A3754116807FDFA77ED5C0C6A9CB3 /* Resources */,
+				838172A90A57D72FAE502ABF033565EC /* Support Files */,
+			);
+			name = BlipChat;
+			path = BlipChat;
+			sourceTree = "<group>";
+		};
+		F0111E2F5C9B517E500690786A846E27 /* Pods-blip-sdk-objective-cTests */ = {
+			isa = PBXGroup;
+			children = (
+				265507B52548CEA9F72042F940C63C5E /* Info.plist */,
+				3CDCBF91B5C30CC15D76FF3DCF1C68FE /* Pods-blip-sdk-objective-cTests.modulemap */,
+				09611083740E61EF2916DC52D25F7F72 /* Pods-blip-sdk-objective-cTests-acknowledgements.markdown */,
+				DBA76F9DF5B4A32F48FBB1674C5CCA1C /* Pods-blip-sdk-objective-cTests-acknowledgements.plist */,
+				88C1F5475742A2102A2A8FFF3B163892 /* Pods-blip-sdk-objective-cTests-dummy.m */,
+				8AC37F7AFD9CC9630C0F6EA63412D235 /* Pods-blip-sdk-objective-cTests-frameworks.sh */,
+				38F984F38F6F3B74B78248974462AB53 /* Pods-blip-sdk-objective-cTests-resources.sh */,
+				2C1123781DE823D3C5383FDD1F645C6A /* Pods-blip-sdk-objective-cTests-umbrella.h */,
+				8E90239C7624A9672A853FE235845CE6 /* Pods-blip-sdk-objective-cTests.debug.xcconfig */,
+				2E4F56A54A1DF1AD10E7363F8C7D2C14 /* Pods-blip-sdk-objective-cTests.release.xcconfig */,
+			);
+			name = "Pods-blip-sdk-objective-cTests";
+			path = "Target Support Files/Pods-blip-sdk-objective-cTests";
+			sourceTree = "<group>";
+		};
+		F8709552A7AACF4A71EC0B7C7B9A2DE8 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				9CEBD09463E67B84D3AF9C02D017527E /* Pods-blip-sdk-objective-c */,
+				F0111E2F5C9B517E500690786A846E27 /* Pods-blip-sdk-objective-cTests */,
+				8603F17DE6E37450CD9FABB1830540F2 /* Pods-blip-sdk-objective-cUITests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		39B24E5274E431023DDAB98728210A5B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55EE6430F7F3159EF306A0CE1CE8BF0F /* Pods-blip-sdk-objective-c-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		429F3FD9A0A476FAE6620F4B00EA6274 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				971903E2B9789AF4F57E1BDB48615DF9 /* Pods-blip-sdk-objective-cTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B67299FA613F2D954B687219E3FEA56A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E78043988218F6AB14217C24B883142F /* Pods-blip-sdk-objective-cUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E48E8CEFA006DD0B3A34DEC94CAEEBA1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04EDA5B287A05F564DFAF5801E2B0A4F /* BlipChat-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		1DA74855A636EDAE90F9BED3EDA6E7DD /* BlipChat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5330C48A679366D4496C69785A4533B1 /* Build configuration list for PBXNativeTarget "BlipChat" */;
+			buildPhases = (
+				CACEF6C3738C41A251A43D078B6E006F /* Sources */,
+				332814B9D17437E139948BB165B0EEE0 /* Frameworks */,
+				993D36E02759509CD94FFF16585863E0 /* Resources */,
+				E48E8CEFA006DD0B3A34DEC94CAEEBA1 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7DD1795F9D8A92199F3414128AFD3181 /* PBXTargetDependency */,
+			);
+			name = BlipChat;
+			productName = BlipChat;
+			productReference = 9249F71B333134E6AEAFA663C04E1034 /* BlipChat.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		38326ED94A0925989EC137B53FEFBC91 /* Pods-blip-sdk-objective-cTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B01DF4614DA7FB45FD03F22CACA6FF40 /* Build configuration list for PBXNativeTarget "Pods-blip-sdk-objective-cTests" */;
+			buildPhases = (
+				F0206F2E4026126A94E781F5F67C318C /* Sources */,
+				2B35218F0922936E5691839569C1F14F /* Frameworks */,
+				429F3FD9A0A476FAE6620F4B00EA6274 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8612714C389BF894DB206CB67E24809F /* PBXTargetDependency */,
+			);
+			name = "Pods-blip-sdk-objective-cTests";
+			productName = "Pods-blip-sdk-objective-cTests";
+			productReference = 90C11B3B4573754720F8AB9AE5EAA2F9 /* Pods_blip_sdk_objective_cTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4E02FAF7791CAB77FDA02DD87D25D91F /* Pods-blip-sdk-objective-cUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 99781E0C832BB85156EA60D54F7D8D66 /* Build configuration list for PBXNativeTarget "Pods-blip-sdk-objective-cUITests" */;
+			buildPhases = (
+				F52CCE5DD02077558A9D98E140114025 /* Sources */,
+				7C97A8E7B43C4F0B5571BD00ED332E55 /* Frameworks */,
+				B67299FA613F2D954B687219E3FEA56A /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				89075D193E20A321B062CD6F59AB0BBE /* PBXTargetDependency */,
+			);
+			name = "Pods-blip-sdk-objective-cUITests";
+			productName = "Pods-blip-sdk-objective-cUITests";
+			productReference = 69D594A22C364FF647B399273791F1F0 /* Pods_blip_sdk_objective_cUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		7D8D6FBBF855E72E03C9B2F41838B0AC /* BlipChat-BlipChat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C2C9C9E0343729E692D4F4BF06C823C5 /* Build configuration list for PBXNativeTarget "BlipChat-BlipChat" */;
+			buildPhases = (
+				21294D17647F7D2A0AE0C2D16F909C75 /* Sources */,
+				33E1F636D9E723671CDA7B5AAF291D11 /* Frameworks */,
+				33F27BBAC02AD7825BED9D9C867E404E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BlipChat-BlipChat";
+			productName = "BlipChat-BlipChat";
+			productReference = 2AC526B4C690CA3623C1277266714B94 /* BlipChat.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		9BFD70F7D227C521D50EF3F8CBBDEFD6 /* Pods-blip-sdk-objective-c */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF5050C649F832F4130197E76B2383D2 /* Build configuration list for PBXNativeTarget "Pods-blip-sdk-objective-c" */;
+			buildPhases = (
+				693EA1732534AEED9A94B34CC93D84EA /* Sources */,
+				CEB57AD044F0666707A43EB6413B3FA8 /* Frameworks */,
+				39B24E5274E431023DDAB98728210A5B /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0E6B37F0D8DF5B3242E6188615D40BED /* PBXTargetDependency */,
+			);
+			name = "Pods-blip-sdk-objective-c";
+			productName = "Pods-blip-sdk-objective-c";
+			productReference = CB6D3C98FBBE87CBD604DA41989DC31B /* Pods_blip_sdk_objective_c.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 7EC131DC62F898CA25421A43A1AEC109 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1DA74855A636EDAE90F9BED3EDA6E7DD /* BlipChat */,
+				7D8D6FBBF855E72E03C9B2F41838B0AC /* BlipChat-BlipChat */,
+				9BFD70F7D227C521D50EF3F8CBBDEFD6 /* Pods-blip-sdk-objective-c */,
+				38326ED94A0925989EC137B53FEFBC91 /* Pods-blip-sdk-objective-cTests */,
+				4E02FAF7791CAB77FDA02DD87D25D91F /* Pods-blip-sdk-objective-cUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		33F27BBAC02AD7825BED9D9C867E404E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14423C099C65EC4D5F83BC7CFDF82AEC /* Assets.xcassets in Resources */,
+				32E23FE807EA6F27EB74D8DA32267301 /* BlipSdkTemplate.html in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		993D36E02759509CD94FFF16585863E0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FD45461A9772DE96C40B41FE992B9D1 /* BlipChat.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		21294D17647F7D2A0AE0C2D16F909C75 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		693EA1732534AEED9A94B34CC93D84EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D8C0542FDE3376874DC78375EE5D6D8 /* Pods-blip-sdk-objective-c-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CACEF6C3738C41A251A43D078B6E006F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				161A9585AD4E26FD8539AD21899714C1 /* Account.swift in Sources */,
+				90F9CB5D38CCE48066454F53F39C3FCC /* AuthType.swift in Sources */,
+				D49B12DA58EB82B44ADD9E42EDD41BE9 /* BlipChat-dummy.m in Sources */,
+				E6F4671BC26DDD3C961E4E74A39F2E55 /* BlipClient.swift in Sources */,
+				0DD8B4C5B3D27973AA506E468295F637 /* BlipErrors.swift in Sources */,
+				F64725113A6DB505E38A6523CE30D609 /* BlipOptions.swift in Sources */,
+				752D63A01DBF4C74F2ED0A0597D18D8A /* BlipWebViewBuilder.swift in Sources */,
+				A1B023A5A6D973904CE0097F6BFABB0D /* Constants.swift in Sources */,
+				EDA69397D4F1C47C586C064CF1F2EECD /* NavigationControllerExtension.swift in Sources */,
+				D42E456BB8C76BCEC7121CA9F55C6706 /* Storyboard.storyboard in Sources */,
+				CA03461D842ABDEB838892F957ED29A0 /* StringExtension.swift in Sources */,
+				65BCE3781F295DC01BEA292678F9B4EA /* ThreadViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0206F2E4026126A94E781F5F67C318C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBB7B09847E83E8F387FA78E47C1E51A /* Pods-blip-sdk-objective-cTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F52CCE5DD02077558A9D98E140114025 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCABC3F22E9F89C3F839A25CFCD5F47A /* Pods-blip-sdk-objective-cUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0E6B37F0D8DF5B3242E6188615D40BED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BlipChat;
+			target = 1DA74855A636EDAE90F9BED3EDA6E7DD /* BlipChat */;
+			targetProxy = A567BFA93B2855C97E9FDF16577F9A05 /* PBXContainerItemProxy */;
+		};
+		7DD1795F9D8A92199F3414128AFD3181 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "BlipChat-BlipChat";
+			target = 7D8D6FBBF855E72E03C9B2F41838B0AC /* BlipChat-BlipChat */;
+			targetProxy = C78110E145AEF02B09838362FAD409F4 /* PBXContainerItemProxy */;
+		};
+		8612714C389BF894DB206CB67E24809F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-blip-sdk-objective-c";
+			target = 9BFD70F7D227C521D50EF3F8CBBDEFD6 /* Pods-blip-sdk-objective-c */;
+			targetProxy = 6B30F8707CE8BB4533C8B72816ED22C0 /* PBXContainerItemProxy */;
+		};
+		89075D193E20A321B062CD6F59AB0BBE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-blip-sdk-objective-c";
+			target = 9BFD70F7D227C521D50EF3F8CBBDEFD6 /* Pods-blip-sdk-objective-c */;
+			targetProxy = EF14085C295D7C3B7AD12600218C1E21 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0D3780DBEA9521E4BBD0DD2CB59E77F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 448FB765BA7B7D034AA32F5BFFE51622 /* BlipChat.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/BlipChat";
+				INFOPLIST_FILE = "Target Support Files/BlipChat/ResourceBundle-BlipChat-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				PRODUCT_NAME = BlipChat;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		19A4939BC5261A50B1FBF32B7FEC2A59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 511B5FCE7E168C8488B6AB126A87AC3D /* Pods-blip-sdk-objective-c.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-blip-sdk-objective-c/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-blip-sdk-objective-c/Pods-blip-sdk-objective-c.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		1B1526FE89A18F1B793DF6A7AB52623D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 448FB765BA7B7D034AA32F5BFFE51622 /* BlipChat.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/BlipChat";
+				INFOPLIST_FILE = "Target Support Files/BlipChat/ResourceBundle-BlipChat-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				PRODUCT_NAME = BlipChat;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		553022A828EE1991F07D2D73F565AEF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		58CE816B060A41D32CEC095441D0E3E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		59FAA873AC3E43A25CBE7F5ED67094D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 448FB765BA7B7D034AA32F5BFFE51622 /* BlipChat.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/BlipChat/BlipChat-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BlipChat/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/BlipChat/BlipChat.modulemap";
+				PRODUCT_MODULE_NAME = BlipChat;
+				PRODUCT_NAME = BlipChat;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7465196D99F53CE6B75A707D0A5D2DAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCA816D4350DF51D96588408A4B22AB6 /* Pods-blip-sdk-objective-cUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-blip-sdk-objective-cUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-blip-sdk-objective-cUITests/Pods-blip-sdk-objective-cUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		98BB869B48BAD0E1BE6CD1880FDB9BCE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E4F56A54A1DF1AD10E7363F8C7D2C14 /* Pods-blip-sdk-objective-cTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-blip-sdk-objective-cTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-blip-sdk-objective-cTests/Pods-blip-sdk-objective-cTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		99E3A4228F2DA48064FD626627E04C4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0AB064DDD8DFA9D3A42AE47C7ADEDDA1 /* Pods-blip-sdk-objective-c.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-blip-sdk-objective-c/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-blip-sdk-objective-c/Pods-blip-sdk-objective-c.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		AFE3FDB28CA5C01D0F8E872E60BF0363 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45794A9074900083327DD5E9E20BEADB /* Pods-blip-sdk-objective-cUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-blip-sdk-objective-cUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-blip-sdk-objective-cUITests/Pods-blip-sdk-objective-cUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B064FD4645965BAC0D6E08651CCD9615 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 448FB765BA7B7D034AA32F5BFFE51622 /* BlipChat.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/BlipChat/BlipChat-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BlipChat/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/BlipChat/BlipChat.modulemap";
+				PRODUCT_MODULE_NAME = BlipChat;
+				PRODUCT_NAME = BlipChat;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CCF7D27AA419E94E137D09CF0359B5A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E90239C7624A9672A853FE235845CE6 /* Pods-blip-sdk-objective-cTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-blip-sdk-objective-cTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-blip-sdk-objective-cTests/Pods-blip-sdk-objective-cTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				553022A828EE1991F07D2D73F565AEF8 /* Debug */,
+				58CE816B060A41D32CEC095441D0E3E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5330C48A679366D4496C69785A4533B1 /* Build configuration list for PBXNativeTarget "BlipChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B064FD4645965BAC0D6E08651CCD9615 /* Debug */,
+				59FAA873AC3E43A25CBE7F5ED67094D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		99781E0C832BB85156EA60D54F7D8D66 /* Build configuration list for PBXNativeTarget "Pods-blip-sdk-objective-cUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFE3FDB28CA5C01D0F8E872E60BF0363 /* Debug */,
+				7465196D99F53CE6B75A707D0A5D2DAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B01DF4614DA7FB45FD03F22CACA6FF40 /* Build configuration list for PBXNativeTarget "Pods-blip-sdk-objective-cTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCF7D27AA419E94E137D09CF0359B5A2 /* Debug */,
+				98BB869B48BAD0E1BE6CD1880FDB9BCE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C2C9C9E0343729E692D4F4BF06C823C5 /* Build configuration list for PBXNativeTarget "BlipChat-BlipChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D3780DBEA9521E4BBD0DD2CB59E77F2 /* Debug */,
+				1B1526FE89A18F1B793DF6A7AB52623D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF5050C649F832F4130197E76B2383D2 /* Build configuration list for PBXNativeTarget "Pods-blip-sdk-objective-c" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				99E3A4228F2DA48064FD626627E04C4C /* Debug */,
+				19A4939BC5261A50B1FBF32B7FEC2A59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

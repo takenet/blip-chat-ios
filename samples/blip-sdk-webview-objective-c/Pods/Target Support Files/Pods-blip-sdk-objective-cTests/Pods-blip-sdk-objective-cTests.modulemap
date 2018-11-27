@@ -1,0 +1,6 @@
+framework module Pods_blip_sdk_objective_cTests {
+  umbrella header "Pods-blip-sdk-objective-cTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,16 @@
+platform :ios, '10.0'
+
+target 'blip-sdk-webview' do
+  use_frameworks!
+
+  pod "BlipChat"
+
+  target 'blip-sdk-webviewTests' do
+    inherit! :search_paths
+  end
+
+  target 'blip-sdk-webviewUITests' do
+    inherit! :search_paths
+  end
+
+end

@@ -1,0 +1,22 @@
+PODS:
+  - BlipChat (2.1.0)
+
+DEPENDENCIES:
+  - BlipChat (from `https://github.com/takenet/blip-chat-ios.git`, tag `2.1.0`)
+
+EXTERNAL SOURCES:
+  BlipChat:
+    :git: https://github.com/takenet/blip-chat-ios.git
+    :tag: 2.1.0
+
+CHECKOUT OPTIONS:
+  BlipChat:
+    :git: https://github.com/takenet/blip-chat-ios.git
+    :tag: 2.1.0
+
+SPEC CHECKSUMS:
+  BlipChat: 2819915b072cee449649a7fae4b6921071f3e96f
+
+PODFILE CHECKSUM: 7057fcc3330b68fc1f4b276aa5483ac0ed164b58
+
+COCOAPODS: 1.5.3

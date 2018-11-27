@@ -1,0 +1,16 @@
+PODS:
+  - BlipChat (2.1.0)
+
+DEPENDENCIES:
+  - BlipChat
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - BlipChat
+
+SPEC CHECKSUMS:
+  BlipChat: 2819915b072cee449649a7fae4b6921071f3e96f
+
+PODFILE CHECKSUM: 6080915b310e4a6cf93159960682e31219731481
+
+COCOAPODS: 1.5.3

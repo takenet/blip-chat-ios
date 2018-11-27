@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script type="text/javascript" src="%scriptSdkUrl%"></script>
+        <style>
+            html, body { width: 100%; height: 100%; margin: 0; }
+        </style>
+    </head>
+    
+    <body id="sdkTarget">
+        <script>
+            (function () {
+                window.onload = function () {
+                    new BlipChat()
+                        .withAppKey('%appKey%')
+                        .withTarget('sdkTarget')
+                        .withAuth(%authConfig%)
+                        .withAccount(%account%)
+                        .build();
+                }
+             })();
+             
+             function setKeyboardOpen(isOpen){
+                 var postMessage = { code: 'KeyboardState', isOpen: isOpen }
+                 document.getElementById('blip-chat-iframe').contentWindow.postMessage(postMessage, '%iframeUrl%');
+             }
+            </script>
+    </body>
+    
+</html>

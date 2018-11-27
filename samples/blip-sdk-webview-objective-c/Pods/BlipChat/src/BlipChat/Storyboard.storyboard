@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="32R-DJ-UGp">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Thread-->
+        <scene sceneID="i5J-vg-TXv">
+            <objects>
+                <viewController storyboardIdentifier="ThreadViewController" title="ThreadViewController" id="32R-DJ-UGp" userLabel="Thread" customClass="ThreadViewController" customModule="BlipChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aJg-Jr-Xmt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" restorationIdentifier="baseView" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5xx-bq-PFL" userLabel="baseView">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <subviews>
+                                    <progressView autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="LaT-Zt-8KK">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="2"/>
+                                    </progressView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="LaT-Zt-8KK" secondAttribute="trailing" id="HJG-N9-IE4"/>
+                                    <constraint firstItem="LaT-Zt-8KK" firstAttribute="top" secondItem="5xx-bq-PFL" secondAttribute="top" id="ksQ-5n-9Ok"/>
+                                    <constraint firstItem="LaT-Zt-8KK" firstAttribute="leading" secondItem="5xx-bq-PFL" secondAttribute="leading" id="mpy-Jd-nNK"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5xx-bq-PFL" firstAttribute="bottom" secondItem="zJv-WX-D0o" secondAttribute="bottom" id="MeK-IB-W7K"/>
+                            <constraint firstItem="5xx-bq-PFL" firstAttribute="leading" secondItem="zJv-WX-D0o" secondAttribute="leading" id="QOM-Dn-4Nm"/>
+                            <constraint firstItem="5xx-bq-PFL" firstAttribute="top" secondItem="zJv-WX-D0o" secondAttribute="top" id="ceK-LL-Ezu"/>
+                            <constraint firstItem="5xx-bq-PFL" firstAttribute="trailing" secondItem="zJv-WX-D0o" secondAttribute="trailing" id="vFB-8B-ZXd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zJv-WX-D0o"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="JE0-4t-T4g"/>
+                    <connections>
+                        <outlet property="baseView" destination="5xx-bq-PFL" id="2rz-M5-x4l"/>
+                        <outlet property="progressView" destination="LaT-Zt-8KK" id="Bsd-be-hgs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JR8-Gc-Bme" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="497" y="202"/>
+        </scene>
+    </scenes>
+</document>
