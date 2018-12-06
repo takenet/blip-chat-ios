@@ -45,19 +45,24 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
         NotificationCenter.default.addObserver(self, selector: #selector(ThreadViewController.keyboardDidHide), name: UIResponder.keyboardDidHideNotification, object: self.view.window)
 
         let frameworkBundle = Bundle(for: ThreadViewController.self);
+        //bundleUrl will be found only on cocoapod open source
         let bundleUrl = frameworkBundle.url(forResource: "BlipChat", withExtension: "bundle");
-        let resourcesBundle = Bundle(url: bundleUrl!);
+        var resourcesBundle:Bundle? = nil;
         
+        if (bundleUrl != nil) {
+            resourcesBundle = Bundle(url: bundleUrl!);
+        } else {
+            resourcesBundle = Bundle(for: type(of: self));
+        }
         // Create cancel button
-        let leftArrow = UIImage(named:"leftArrow", in: resourcesBundle, compatibleWith: nil)
+        let leftArrow = UIImage(named:"leftArrow", in: resourcesBundle, compatibleWith: nil)!;
         let cancelButton = UIBarButtonItem(image: leftArrow, style: .plain, target: self, action: #selector(ThreadViewController.handleCancel))
         self.navigationController?.topViewController?.navigationItem.leftBarButtonItem = cancelButton
         self.navigationController?.topViewController?.navigationItem.title = self.options.windowTitle
         
         // Build html with user data
-        let htmlFile = resourcesBundle!.path(forResource: "BlipSdkTemplate", ofType: "html");
-        
-        html = try! String(contentsOfFile: htmlFile!, encoding: String.Encoding.utf8)
+        let htmlFile = resourcesBundle!.path(forResource: "BlipSdkTemplate", ofType: "html")!;
+        html = try! String(contentsOfFile: htmlFile, encoding: String.Encoding.utf8)
             .replacingOccurrences(of: Constants.API_KEY_VAR_KEY, with: self.appKey)
             .replacingOccurrences(of: Constants.AUTHCONFIG_VAR_KEY, with: self.options.getAuthTypeConfig())
             .replacingOccurrences(of: Constants.ACCOUNT_VAR_KEY, with: self.options.getAccount())
