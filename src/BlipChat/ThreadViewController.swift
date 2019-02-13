@@ -66,8 +66,10 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
             .replacingOccurrences(of: Constants.API_KEY_VAR_KEY, with: self.appKey)
             .replacingOccurrences(of: Constants.AUTHCONFIG_VAR_KEY, with: self.options.getAuthTypeConfig())
             .replacingOccurrences(of: Constants.ACCOUNT_VAR_KEY, with: self.options.getAccount())
-            .replacingOccurrences(of: Constants.SCRIPT_SDK_URL_KEY, with: Constants.BLIP_SDK_URL)
-            .replacingOccurrences(of: Constants.IFRAME_URL_KEY, with: Constants.IFRAME_URL);
+            .replacingOccurrences(of: Constants.CONNECTION_DATA_KEY, with: self.options.getConnectionDataConfig())
+            .replacingOccurrences(of: Constants.SCRIPT_SDK_URL_KEY, with: self.options.customWidgetUrl ?? Constants.BLIP_SDK_URL)
+            .replacingOccurrences(of: Constants.IFRAME_URL_KEY, with: self.options.customCommonUrl ?? Constants.IFRAME_URL)
+            .replacingOccurrences(of: Constants.CUSTOM_COMMON_URL_KEY, with: self.options.customCommonUrl ?? "");
         
         self.webView.load(URLRequest(url:URL(string:Constants.BLIP_BLANK_PAGE)!))
         baseUrl = URL(string: "https://\(Bundle.main.bundleIdentifier!.lowercased())/")

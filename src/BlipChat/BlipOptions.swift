@@ -24,6 +24,21 @@ import Foundation
     @objc public var account: Account?
     
     /**
+     Custom connection data configuration
+    */
+    @objc public var connectionDataConfig: ConnectionDataConfig?
+    
+    /**
+    Custom url to be used on blip chat common
+    */
+    @objc public var customCommonUrl: String?
+    
+    /**
+    Custom url to fetch blip chat widget lib
+    */
+    @objc public var customWidgetUrl: String?
+    
+    /**
      Title for BlipChat controller
      */
     @objc public var windowTitle: String
@@ -66,6 +81,30 @@ import Foundation
         self.windowTitle = windowTitle ?? "Blip Chat"
     }
     
+    /**
+     - Parameter authType: AuthTypeConfig object to define the auth mode for BlipChat
+     - Parameter account: Account object to define user properties
+     - Parameter connectionDataConfig: Custom connection data configuration
+     - Parameter customCommonUrl: Custom url to be used on BLiPChat
+     - Parameter customWidgetUrl: Custom url to fetch BLiPChat widget lib
+     - Parameter windowTitle: Title for BlipChat controller
+     */
+    @objc public init(
+        authType: AuthConfig,
+        account: Account?,
+        connectionDataConfig: ConnectionDataConfig?,
+        customCommonUrl: String?,
+        customWidgetUrl: String?,
+        windowTitle: String?)
+    {
+        self.authConfig = authType
+        self.account = account
+        self.connectionDataConfig = connectionDataConfig
+        self.customCommonUrl = customCommonUrl
+        self.customWidgetUrl = customWidgetUrl
+        self.windowTitle = windowTitle ?? "Blip Chat"
+    }
+    
     internal func getAuthTypeConfig() -> String {
         var json = "{ \"authType\": \"\(self.authConfig.authType.name())\""
         if self.authConfig.authType == .Dev {
@@ -83,21 +122,11 @@ import Foundation
         return accountJson ?? "{}"
     }
     
-//    /**
-//     Get Json for the BlipOptions object
-//     */
-//    internal func getJson() -> String {
-//        var optionString = "{ config: { authType: '\(authType.string)', "
-//        if authType == .Dev {
-//            optionString += "user: { "
-//            optionString += "id: '\(userIdentifier!)', "
-//            optionString += "password: '\(userPassword!)'"
-//            optionString += userName != nil ? ", name: '\(userName!)'" : ""
-//            optionString += userEmail != nil ? ", email: '\(userEmail!)'" : ""
-//            optionString += "} "
-//        }
-//        optionString += "} }"
-//
-//        return optionString
-//    }
+    internal func getConnectionDataConfig() -> String {
+        var connectionDataJson: String?
+        if connectionDataConfig != nil {
+            connectionDataJson = try! String(data: JSONEncoder().encode(connectionDataConfig), encoding: .utf8)
+        }
+        return connectionDataJson ?? "{}"
+    }
 }

@@ -18,6 +18,7 @@
 		6A2157B21EBD13360051C5D2 /* BlipSdkTemplate.html in Resources */ = {isa = PBXBuildFile; fileRef = 6A2157AD1EBD13360051C5D2 /* BlipSdkTemplate.html */; };
 		6A2157B31EBD13360051C5D2 /* BlipWebViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2157AE1EBD13360051C5D2 /* BlipWebViewBuilder.swift */; };
 		6A2157B41EBD13360051C5D2 /* ThreadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2157AF1EBD13360051C5D2 /* ThreadViewController.swift */; };
+		6A53915C221339D300D51961 /* ConnectionDataConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A53915B221339D300D51961 /* ConnectionDataConfig.swift */; };
 		6AEFE9652069695A00CE8F0B /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEFE9642069695A00CE8F0B /* Account.swift */; };
 		84055BCB2040A4F3002645C5 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84055BCA2040A4F3002645C5 /* Storyboard.storyboard */; };
 		846C1CA0203C948600C7B0DE /* NavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846C1C9F203C948600C7B0DE /* NavigationControllerExtension.swift */; };
@@ -37,6 +38,7 @@
 		6A2157AD1EBD13360051C5D2 /* BlipSdkTemplate.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = BlipSdkTemplate.html; sourceTree = "<group>"; };
 		6A2157AE1EBD13360051C5D2 /* BlipWebViewBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlipWebViewBuilder.swift; sourceTree = "<group>"; };
 		6A2157AF1EBD13360051C5D2 /* ThreadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadViewController.swift; sourceTree = "<group>"; };
+		6A53915B221339D300D51961 /* ConnectionDataConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionDataConfig.swift; sourceTree = "<group>"; };
 		6AEFE9642069695A00CE8F0B /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		84055BCA2040A4F3002645C5 /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		846C1C9F203C948600C7B0DE /* NavigationControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerExtension.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				6A2157961EBD11B80051C5D2 /* AuthType.swift */,
 				6AEFE9642069695A00CE8F0B /* Account.swift */,
 				6A2157971EBD11B80051C5D2 /* BlipOptions.swift */,
+				6A53915B221339D300D51961 /* ConnectionDataConfig.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				6AEFE9652069695A00CE8F0B /* Account.swift in Sources */,
 				846C1CA0203C948600C7B0DE /* NavigationControllerExtension.swift in Sources */,
 				6A2157B11EBD13360051C5D2 /* BlipClient.swift in Sources */,
+				6A53915C221339D300D51961 /* ConnectionDataConfig.swift in Sources */,
 				6A2157981EBD11B80051C5D2 /* AuthType.swift in Sources */,
 				6A2157991EBD11B80051C5D2 /* BlipOptions.swift in Sources */,
 			);
