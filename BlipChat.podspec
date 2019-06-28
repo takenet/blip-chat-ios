@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.ios.deployment_target  = "10.0"
 
-  s.source       = { :git  => "https://github.com/takenet/blip-chat-ios.git", :tag => "2.1.2"}
+  s.source       = { :git  => "https://github.com/takenet/blip-chat-ios.git", :tag => "2.2.0"}
   s.source_files = "src/BlipChat/*.swift", "src/BlipChat/*.storyboard"
   s.resource_bundles = {
     "BlipChat" => ["src/BlipChat/*.xcassets", "src/BlipChat/*.html"]
