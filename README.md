@@ -40,7 +40,7 @@ How to use
 
 ### Setting your SDK
 
-After including the SDK reference in your project, you need to get your API key from [BLiP portal][3]. Go to the left menu and access `Publications > Blip Chat`. You will also need to sign up your iOS App Id on the `Domains` section in order to enable the chatbot in your app.
+After including the SDK reference in your project, you need to get your App Key from [BLiP portal][1]. Go to the left menu and access `Publications > Blip Chat`. On the `Setup` tab you will be able to get the required app key. You will also need to sign up your iOS App Id on the `Domains` section in order to enable the chatbot in your app.
 
 To use location cards, set up the Usage Description Key for Location Service on **info.plist** file. Use the key *Privacy - Location When In Use Usage Description* and set a message to ask for user's permission to use their location. 
 
@@ -311,8 +311,7 @@ License
 	limitations under the License.
 
 
- [1]: https://blip.ai
- [2]: https://portal.blip.ai/#/docs/home
- [3]: http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22net.take%22
+ [1]: https://portal.blip.ai
+ [2]: https://docs.blip.ai/#introduction
  [4]: http://limeprotocol.org
  [snap]: https://oss.sonatype.org/content/repositories/snapshots/
