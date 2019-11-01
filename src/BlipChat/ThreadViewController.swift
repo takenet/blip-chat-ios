@@ -99,8 +99,9 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
     /// Handle keyboard hiding on screen
     @objc func keyboardWillHide(notification: NSNotification) {
         let statusBarHeight =  UIApplication.shared.statusBarFrame.height
-        let navBarheight = self.navigationController?.navigationBar.bounds.size.height
-        self.view.frame.origin.y = statusBarHeight + navBarheight!
+        if let navBarheight = self.navigationController?.navigationBar.bounds.size.height {
+            self.view.frame.origin.y = statusBarHeight + navBarheight
+        }
         
         // Notify about blipchat that keyboard is closed
         self.webView.evaluateJavaScript("setKeyboardOpen(false)", completionHandler: nil)
