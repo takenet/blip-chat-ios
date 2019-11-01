@@ -5,7 +5,6 @@
 //  Created by Curupira on 07/04/17.
 //  Copyright © 2017 Curupira. All rights reserved.
 //
-
 import Foundation
 /**
  Provider for AuthType
