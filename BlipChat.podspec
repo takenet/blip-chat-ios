@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "BlipChat"
-  s.version      = "2.2.1"
+  s.version      = "2.2.2"
   s.summary      = "A Swift Framework to easly add BLiP conversations in your iOS app. For more information see BLiP portal and BLiP documentation."
 
   s.homepage     = "https://github.com/takenet/blip-chat-ios"
@@ -12,12 +12,12 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.ios.deployment_target  = "10.0"
 
-  s.source       = { :git  => "https://github.com/takenet/blip-chat-ios.git", :tag => "2.2.1"}
+  s.source       = { :git  => "https://github.com/takenet/blip-chat-ios.git", :tag => "2.2.2"}
   s.source_files = "src/BlipChat/*.swift", "src/BlipChat/*.storyboard"
   s.resource_bundles = {
     "BlipChat" => ["src/BlipChat/*.xcassets", "src/BlipChat/*.html"]
   }
-  s.swift_version = "5.0"
-  s.pod_target_xcconfig = { "SWIFT_VERSION" => "5.0" }
+  s.swift_version = "5.1"
+  s.pod_target_xcconfig = { "SWIFT_VERSION" => "5.1" }
 
 end

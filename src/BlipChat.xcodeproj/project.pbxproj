@@ -162,7 +162,7 @@
 					6A2157831EBD11090051C5D2 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 2U6X6P3626;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1110;
 						ProvisioningStyle = Automatic;
 					};
 				};
