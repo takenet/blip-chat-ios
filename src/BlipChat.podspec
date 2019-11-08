@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "BlipChat"
-  s.version      = "2.1.1"
+  s.version      = "2.2.3"
   s.summary      = "A Swift Framework to easly add BLiP conversations in your iOS app. For more information see BLiP portal and BLiP documentation."
 
   # This description is used to generate tags and improve search results.
@@ -78,7 +78,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source = { :http  => "https://github.com/takenet/blip-chat-ios/raw/master/Releases/2.2.2.zip" }
+  s.source = { :http  => "https://github.com/takenet/blip-chat-ios/raw/master/Releases/2.2.3.zip" }
 
   s.vendored_frameworks = 'BlipChat.framework'
 
@@ -135,6 +135,6 @@ Pod::Spec.new do |s|
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
 
-  s.pod_target_xcconfig = { "SWIFT_VERSION" => "4.2" }
+  s.pod_target_xcconfig = { "SWIFT_VERSION" => "5.0.1" }
 
 end
