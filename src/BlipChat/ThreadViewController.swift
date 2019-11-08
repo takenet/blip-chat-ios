@@ -8,12 +8,10 @@
 
 import UIKit
 import WebKit
-internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIScrollViewDelegate, WKUIDelegate{
+internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIScrollViewDelegate, WKUIDelegate {
     
     var appKey : String!
     var options : BlipOptions!
-//    var tintColor: UIColor?
-//    var backgroundColor: UIColor?
     var webView:WKWebView!
     var baseUrl : URL!
     var html : String = ""
@@ -75,6 +73,11 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
         baseUrl = URL(string: "https://\(Bundle.main.bundleIdentifier!.lowercased())/")
         
         UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        webView.frame = baseView.frame
     }
     
     deinit {
@@ -175,6 +178,18 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
         view.addConstraint(NSLayoutConstraint(item: progressView, attribute: .top, relatedBy: .equal, toItem: self.topLayoutGuide, attribute: .bottom, multiplier: 1.0, constant: 0.0))
         view.addConstraint(NSLayoutConstraint(item: progressView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1.0, constant: 0.0))
         view.addConstraint(NSLayoutConstraint(item: view, attribute: .trailing, relatedBy: .equal, toItem: progressView, attribute: .trailing, multiplier: 1.0, constant: 0.0))
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        print("BLiP Chat - Finish loading HTML string successfully")
+    }
+    
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        print("BLiP Chat - Fail navigation: \(error)")
+    }
+    
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        print("BLiP Chat - Fail provisional navigation: \(error)")
     }
     
     override open var supportedInterfaceOrientations: UIInterfaceOrientationMask {

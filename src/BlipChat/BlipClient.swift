@@ -34,16 +34,12 @@ import UIKit
         let viewController = storyboard.instantiateViewController(withIdentifier: "ThreadViewController") as! ThreadViewController
         viewController.appKey = appKey
         viewController.options = options
-//        ThreadViewController.backgroundColor = myView.navigationController?.navigationBar.backgroundColor
-//        ThreadViewController.tintColor = myView.navigationController?.navigationBar.tintColor
         
         if myView.navigationController == nil {
             print("BlipChat Error: " + BlipErrors.emptyNoNavController.errorDescription!)
             throw BlipErrors.emptyNoNavController
         }
         myView.navigationController?.pushViewController(viewController, animated: true)
-        
-
     }
     
     internal static func validateSdkConfiguration(identifier: String, options:BlipOptions) throws {
