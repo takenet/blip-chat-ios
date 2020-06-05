@@ -209,7 +209,7 @@ let options = BlipOptions(authType: authConfig, account: nil, connectionDataConf
 
 ```Objective-C
 AuthConfig *authConfig = [[AuthConfig alloc] initWithAuthType:AuthTypeDev userIdentity:@"user-identifier" userPassword:@"user-password"];
-options = [[BlipOptions alloc] initWithAuthType:authConfig account: nil connectionDataConfig: nil, customWidgetUrl: nil, windowTitle: nil];
+options = [[BlipOptions alloc] initWithAuthType:authConfig account: nil connectionDataConfig: nil customWidgetUrl: nil windowTitle: nil];
 
 // Use your organization BLiP Chat URL
 options.customCommonUrl = @"https://take.chat.blip.ai/";
