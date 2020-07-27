@@ -46,15 +46,29 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
         //bundleUrl will be found only on cocoapod open source
         let bundleUrl = frameworkBundle.url(forResource: "BlipChat", withExtension: "bundle");
         var resourcesBundle:Bundle? = nil;
+        // let resourcesBundle = Bundle(identifier: "org.cocoapods.BlipChat");
         
         if (bundleUrl != nil) {
             resourcesBundle = Bundle(url: bundleUrl!);
         } else {
             resourcesBundle = Bundle(for: type(of: self));
         }
+        if let loadedBundle = resourcesBundle?.load() {
+           print(loadedBundle)
+        } else {
+           print("Else")
+        }
+        
         // Create cancel button
-        let leftArrow = UIImage(named:"leftArrow", in: resourcesBundle, compatibleWith: nil)!;
-        let cancelButton = UIBarButtonItem(image: leftArrow, style: .plain, target: self, action: #selector(ThreadViewController.handleCancel))
+        let leftArrow = UIImage(named:"leftArrow", in: resourcesBundle, compatibleWith: nil);
+        var cancelButton: UIBarButtonItem? = nil;
+
+        if (leftArrow != nil) {
+            cancelButton = UIBarButtonItem(image: leftArrow, style: .plain, target: self, action: #selector(ThreadViewController.handleCancel))
+        } else {
+            cancelButton = UIBarButtonItem(title: "<", style: .plain, target: self, action: #selector(ThreadViewController.handleCancel))
+        }
+        
         self.navigationController?.topViewController?.navigationItem.leftBarButtonItem = cancelButton
         self.navigationController?.topViewController?.navigationItem.title = self.options.windowTitle
         
