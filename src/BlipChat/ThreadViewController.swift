@@ -44,8 +44,8 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
 
         let resourcesBundle = Bundle(identifier: "org.cocoapods.BlipChat");
         
-        if let loadedBundle = resourcesBundle.load() {
-           print("Bundle loaded" + loadedBundle)
+        if let loadedBundle = resourcesBundle?.load() {
+           print("Bundle loaded: \(loadedBundle)")
         } else {
            print("Undefined bundle")
         }
