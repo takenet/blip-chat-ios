@@ -42,21 +42,12 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
         NotificationCenter.default.addObserver(self, selector: #selector(ThreadViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: self.view.window)
         NotificationCenter.default.addObserver(self, selector: #selector(ThreadViewController.keyboardDidHide), name: UIResponder.keyboardDidHideNotification, object: self.view.window)
 
-        let frameworkBundle = Bundle(for: ThreadViewController.self);
-        //bundleUrl will be found only on cocoapod open source
-        let bundleUrl = frameworkBundle.url(forResource: "BlipChat", withExtension: "bundle");
-        var resourcesBundle:Bundle? = nil;
-        // let resourcesBundle = Bundle(identifier: "org.cocoapods.BlipChat");
+        let resourcesBundle = Bundle(identifier: "org.cocoapods.BlipChat");
         
-        if (bundleUrl != nil) {
-            resourcesBundle = Bundle(url: bundleUrl!);
+        if let loadedBundle = resourcesBundle.load() {
+           print("Bundle loaded" + loadedBundle)
         } else {
-            resourcesBundle = Bundle(for: type(of: self));
-        }
-        if let loadedBundle = resourcesBundle?.load() {
-           print(loadedBundle)
-        } else {
-           print("Else")
+           print("Undefined bundle")
         }
         
         // Create cancel button
@@ -65,8 +56,10 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
 
         if (leftArrow != nil) {
             cancelButton = UIBarButtonItem(image: leftArrow, style: .plain, target: self, action: #selector(ThreadViewController.handleCancel))
+            print("Bundle image loaded")
         } else {
             cancelButton = UIBarButtonItem(title: "<", style: .plain, target: self, action: #selector(ThreadViewController.handleCancel))
+            print("iOS Default Image loaded")
         }
         
         self.navigationController?.topViewController?.navigationItem.leftBarButtonItem = cancelButton
