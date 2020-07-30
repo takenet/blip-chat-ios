@@ -42,12 +42,12 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
         NotificationCenter.default.addObserver(self, selector: #selector(ThreadViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: self.view.window)
         NotificationCenter.default.addObserver(self, selector: #selector(ThreadViewController.keyboardDidHide), name: UIResponder.keyboardDidHideNotification, object: self.view.window)
 
-        let resourcesBundle = Bundle(identifier: "org.cocoapods.BlipChat");
+        var resourcesBundle = Bundle(identifier: "org.cocoapods.BlipChat");
         
-        if let loadedBundle = resourcesBundle?.load() {
-           print("Bundle loaded: \(loadedBundle)")
+        if (resourcesBundle?.load()) != nil {
+           print("Bundle using indentifier")
         } else {
-           print("Undefined bundle")
+           resourcesBundle = Bundle(for: type(of: self));
         }
         
         // Create cancel button
@@ -56,10 +56,8 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
 
         if (leftArrow != nil) {
             cancelButton = UIBarButtonItem(image: leftArrow, style: .plain, target: self, action: #selector(ThreadViewController.handleCancel))
-            print("Bundle image loaded")
         } else {
             cancelButton = UIBarButtonItem(title: "<", style: .plain, target: self, action: #selector(ThreadViewController.handleCancel))
-            print("iOS Default Image loaded")
         }
         
         self.navigationController?.topViewController?.navigationItem.leftBarButtonItem = cancelButton

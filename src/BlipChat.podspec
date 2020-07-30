@@ -78,7 +78,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source = { :http  => "https://github.com/takenet/blip-chat-ios/raw/master/Releases/2.2.3.zip" }
+  s.source = { :http  => "https://github.com/takenet/blip-chat-ios/raw/master/Releases/2.1.1.zip" }
 
   s.vendored_frameworks = 'BlipChat.framework'
 
