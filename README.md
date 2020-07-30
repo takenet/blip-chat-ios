@@ -193,6 +193,28 @@ BlipOptions *options = [[BlipOptions alloc] init];
 options.windowTitle = @"Window Title";
 ```
 
+### Setting a custom URL for chat 
+
+To use organization in BLiP Chat's iOS SDK, you must assign options to your organization's BLiP Chat URL.
+
+**Swift**
+```swift
+let authConfig = AuthConfig()
+
+// Use your organization BLiP Chat URL
+let options = BlipOptions(authType: authConfig, account: nil, connectionDataConfig: nil, customCommonUrl: "https://take.chat.blip.ai/", customWidgetUrl: nil, windowTitle: nil)
+```
+
+**Objective-C**
+
+```Objective-C
+AuthConfig *authConfig = [[AuthConfig alloc] initWithAuthType:AuthTypeDev userIdentity:@"user-identifier" userPassword:@"user-password"];
+options = [[BlipOptions alloc] initWithAuthType:authConfig account: nil connectionDataConfig: nil customWidgetUrl: nil windowTitle: nil];
+
+// Use your organization BLiP Chat URL
+options.customCommonUrl = @"https://take.chat.blip.ai/";
+```
+
 ### Setting window title with Dev auth type:
 
 **Swift**
