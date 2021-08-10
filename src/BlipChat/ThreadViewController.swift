@@ -16,6 +16,7 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
     var baseUrl : URL!
     var html : String = ""
 
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet var progressView: UIProgressView!
     @IBOutlet var baseView: UIView!
     
@@ -97,19 +98,23 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
             let navBarheight = self.navigationController?.navigationBar.bounds.size.height
             let height = -keyboardSize.height + statusBarHeight + navBarheight!
             self.view.frame.origin.y = height
-            
+               
+            bottomConstraint.constant = -keyboardSize.height
+            updateViewConstraints()
+               
             // Notify about blipchat that keyboard is open
             self.webView.evaluateJavaScript("setKeyboardOpen(true)", completionHandler: nil)
         }
-        
     }
-    
+       
     /// Handle keyboard hiding on screen
     @objc func keyboardWillHide(notification: NSNotification) {
         let statusBarHeight =  UIApplication.shared.statusBarFrame.height
-        if let navBarheight = self.navigationController?.navigationBar.bounds.size.height {
-            self.view.frame.origin.y = statusBarHeight + navBarheight
-        }
+        let navBarheight = self.navigationController?.navigationBar.bounds.size.height
+        self.view.frame.origin.y = statusBarHeight + navBarheight!
+        
+        bottomConstraint.constant = 0
+        updateViewConstraints()
         
         // Notify about blipchat that keyboard is closed
         self.webView.evaluateJavaScript("setKeyboardOpen(false)", completionHandler: nil)
