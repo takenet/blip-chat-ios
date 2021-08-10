@@ -92,20 +92,20 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
     }
     
     /// Handle keyboard appearing on screen
-       @objc func keyboardWillShow(notification: NSNotification) {
-           if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-               let statusBarHeight =  UIApplication.shared.statusBarFrame.height
-               let navBarheight = self.navigationController?.navigationBar.bounds.size.height
-               let height = -keyboardSize.height + statusBarHeight + navBarheight!
-               self.view.frame.origin.y = height
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            let statusBarHeight =  UIApplication.shared.statusBarFrame.height
+            let navBarheight = self.navigationController?.navigationBar.bounds.size.height
+            let height = -keyboardSize.height + statusBarHeight + navBarheight!
+            self.view.frame.origin.y = height
                
-               bottomConstraint.constant = -keyboardSize.height
-               updateViewConstraints()
+            bottomConstraint.constant = -keyboardSize.height
+            updateViewConstraints()
                
-               // Notify about blipchat that keyboard is open
-               self.webView.evaluateJavaScript("setKeyboardOpen(true)", completionHandler: nil)
-           }
-       }
+            // Notify about blipchat that keyboard is open
+            self.webView.evaluateJavaScript("setKeyboardOpen(true)", completionHandler: nil)
+        }
+    }
        
     /// Handle keyboard hiding on screen
     @objc func keyboardWillHide(notification: NSNotification) {
