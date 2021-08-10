@@ -94,11 +94,7 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
     /// Handle keyboard appearing on screen
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            let statusBarHeight =  UIApplication.shared.statusBarFrame.height
-            let navBarheight = self.navigationController?.navigationBar.bounds.size.height
-            let height = -keyboardSize.height + statusBarHeight + navBarheight!
-            self.view.frame.origin.y = height
-               
+
             bottomConstraint.constant = -keyboardSize.height
             updateViewConstraints()
                
@@ -109,9 +105,6 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
        
     /// Handle keyboard hiding on screen
     @objc func keyboardWillHide(notification: NSNotification) {
-        let statusBarHeight =  UIApplication.shared.statusBarFrame.height
-        let navBarheight = self.navigationController?.navigationBar.bounds.size.height
-        self.view.frame.origin.y = statusBarHeight + navBarheight!
         
         bottomConstraint.constant = 0
         updateViewConstraints()
