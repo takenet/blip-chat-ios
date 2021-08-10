@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "BlipChat"
-  s.version      = "2.2.3"
+  s.version      = "2.2.5-beta1"
   s.summary      = "A Swift Framework to easly add BLiP conversations in your iOS app. For more information see BLiP portal and BLiP documentation."
 
   s.homepage     = "https://github.com/takenet/blip-chat-ios"
