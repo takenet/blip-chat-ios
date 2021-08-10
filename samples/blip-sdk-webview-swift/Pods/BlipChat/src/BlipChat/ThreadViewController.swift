@@ -18,6 +18,7 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
     var baseUrl : URL!
     var html : String = ""
 
+    @IBOutlet weak var bottomContraint: NSLayoutConstraint!
     @IBOutlet var progressView: UIProgressView!
     @IBOutlet var baseView: UIView!
     
@@ -83,6 +84,9 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
             let height = -keyboardSize.height + statusBarHeight + navBarheight!
             self.view.frame.origin.y = height
             
+            bottomContraint.constant = -keyboardSize.height
+            updateViewConstraints()
+            
             // Notify about blipchat that keyboard is open
             self.webView.evaluateJavaScript("setKeyboardOpen(true)", completionHandler: nil)
         }
@@ -94,6 +98,9 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
         let statusBarHeight =  UIApplication.shared.statusBarFrame.height
         let navBarheight = self.navigationController?.navigationBar.bounds.size.height
         self.view.frame.origin.y = statusBarHeight + navBarheight!
+        
+        bottomContraint.constant = 0
+        updateViewConstraints()
         
         // Notify about blipchat that keyboard is closed
         self.webView.evaluateJavaScript("setKeyboardOpen(false)", completionHandler: nil)
