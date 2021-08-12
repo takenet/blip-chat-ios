@@ -80,7 +80,7 @@ Pod::Spec.new do |s|
 
   s.source = { :http  => "https://github.com/takenet/blip-chat-ios/raw/master/Releases/2.2.5-beta2.zip" }
 
-  s.vendored_frameworks = 'BlipChat.framework'
+  s.vendored_frameworks = 'BlipChat.xcframework'
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
