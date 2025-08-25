@@ -20,21 +20,38 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
     @IBOutlet var progressView: UIProgressView!
     @IBOutlet var baseView: UIView!
     
-    override func viewDidAppear(_ animated: Bool) {
-        webView.frame = baseView.frame
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.edgesForExtendedLayout = []
-        
+
         self.webView = BlipWebViewBuilder()
-                .withNavigationDelegate(navigationDelegate: self)
-                .withZoomDelegate(scrollDelegate: self)
-                .withObserver(observer: self)
-                .withUIDelegate(UIDelegate: self)
-                .build()
-        view.addSubview(webView)
+            .withNavigationDelegate(navigationDelegate: self)
+            .withZoomDelegate(scrollDelegate: self)
+            .withObserver(observer: self)
+            .withUIDelegate(UIDelegate: self)
+            .build()
+
+        webView.translatesAutoresizingMaskIntoConstraints = false
+
+        baseView.addSubview(webView)
+
+        if #available(iOS 11.0, *) {
+            let safeArea = baseView.safeAreaLayoutGuide
+
+            NSLayoutConstraint.activate([
+                webView.topAnchor.constraint(equalTo: safeArea.topAnchor),
+                webView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
+                webView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+                webView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor)
+            ])
+        } else {
+            NSLayoutConstraint.activate([
+                webView.topAnchor.constraint(equalTo: baseView.topAnchor),
+                webView.bottomAnchor.constraint(equalTo: baseView.bottomAnchor),
+                webView.leadingAnchor.constraint(equalTo: baseView.leadingAnchor),
+                webView.trailingAnchor.constraint(equalTo: baseView.trailingAnchor)
+            ])
+        }
         
         setProgressView();
         
@@ -81,11 +98,6 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
         UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        webView.frame = baseView.frame
-    }
-    
     deinit {
         NotificationCenter.default.removeObserver(self)
         webView?.removeObserver(self, forKeyPath: "estimatedProgress")
@@ -94,8 +106,13 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
     /// Handle keyboard appearing on screen
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            var bottomInset: CGFloat = 0
+            
+            if #available(iOS 11.0, *) {
+                bottomInset = view.safeAreaInsets.bottom
+            }
 
-            bottomConstraint.constant = -keyboardSize.height
+            bottomConstraint.constant = -(keyboardSize.height - bottomInset)
             updateViewConstraints()
                
             // Notify about blipchat that keyboard is open
