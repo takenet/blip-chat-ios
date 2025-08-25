@@ -1,16 +1,16 @@
 PODS:
-  - BlipChat (2.1.0)
+  - BlipChat (3.0.0)
 
 DEPENDENCIES:
-  - BlipChat
+  - BlipChat (from `../..`)
 
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - BlipChat
+EXTERNAL SOURCES:
+  BlipChat:
+    :path: "../.."
 
 SPEC CHECKSUMS:
-  BlipChat: 2819915b072cee449649a7fae4b6921071f3e96f
+  BlipChat: 6982e7051f1a1e8b0da18e478e167be18a4ba309
 
-PODFILE CHECKSUM: 6080915b310e4a6cf93159960682e31219731481
+PODFILE CHECKSUM: 13bf0f8bafd31e892beaa1ae9c793f9ccf718499
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.16.2

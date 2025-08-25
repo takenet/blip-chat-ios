@@ -3,7 +3,7 @@ platform :ios, '10.0'
 target 'blip-sdk-webview' do
   use_frameworks!
 
-  pod "BlipChat"
+  pod 'BlipChat', :path => '../..'
 
   target 'blip-sdk-webviewTests' do
     inherit! :search_paths
