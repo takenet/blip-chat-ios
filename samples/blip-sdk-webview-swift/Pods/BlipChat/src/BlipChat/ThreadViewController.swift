@@ -16,24 +16,42 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
     var baseUrl : URL!
     var html : String = ""
 
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet var progressView: UIProgressView!
     @IBOutlet var baseView: UIView!
-    
-    override func viewDidAppear(_ animated: Bool) {
-        webView.frame = baseView.frame
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.edgesForExtendedLayout = []
-        
+
         self.webView = BlipWebViewBuilder()
-                .withNavigationDelegate(navigationDelegate: self)
-                .withZoomDelegate(scrollDelegate: self)
-                .withObserver(observer: self)
-                .withUIDelegate(UIDelegate: self)
-                .build()
-        view.addSubview(webView)
+            .withNavigationDelegate(navigationDelegate: self)
+            .withZoomDelegate(scrollDelegate: self)
+            .withObserver(observer: self)
+            .withUIDelegate(UIDelegate: self)
+            .build()
+
+        webView.translatesAutoresizingMaskIntoConstraints = false
+
+        baseView.addSubview(webView)
+
+        if #available(iOS 11.0, *) {
+            let safeArea = baseView.safeAreaLayoutGuide
+
+            NSLayoutConstraint.activate([
+                webView.topAnchor.constraint(equalTo: safeArea.topAnchor),
+                webView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
+                webView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+                webView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor)
+            ])
+        } else {
+            NSLayoutConstraint.activate([
+                webView.topAnchor.constraint(equalTo: baseView.topAnchor),
+                webView.bottomAnchor.constraint(equalTo: baseView.bottomAnchor),
+                webView.leadingAnchor.constraint(equalTo: baseView.leadingAnchor),
+                webView.trailingAnchor.constraint(equalTo: baseView.trailingAnchor)
+            ])
+        }
         
         setProgressView();
         
@@ -80,11 +98,6 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
         UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        webView.frame = baseView.frame
-    }
-    
     deinit {
         NotificationCenter.default.removeObserver(self)
         webView?.removeObserver(self, forKeyPath: "estimatedProgress")
@@ -93,23 +106,25 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
     /// Handle keyboard appearing on screen
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            let statusBarHeight =  UIApplication.shared.statusBarFrame.height
-            let navBarheight = self.navigationController?.navigationBar.bounds.size.height
-            let height = -keyboardSize.height + statusBarHeight + navBarheight!
-            self.view.frame.origin.y = height
+            var bottomInset: CGFloat = 0
             
+            if #available(iOS 11.0, *) {
+                bottomInset = view.safeAreaInsets.bottom
+            }
+
+            bottomConstraint.constant = -(keyboardSize.height - bottomInset)
+            updateViewConstraints()
+               
             // Notify about blipchat that keyboard is open
             self.webView.evaluateJavaScript("setKeyboardOpen(true)", completionHandler: nil)
         }
-        
     }
-    
+       
     /// Handle keyboard hiding on screen
     @objc func keyboardWillHide(notification: NSNotification) {
-        let statusBarHeight =  UIApplication.shared.statusBarFrame.height
-        if let navBarheight = self.navigationController?.navigationBar.bounds.size.height {
-            self.view.frame.origin.y = statusBarHeight + navBarheight
-        }
+        
+        bottomConstraint.constant = 0
+        updateViewConstraints()
         
         // Notify about blipchat that keyboard is closed
         self.webView.evaluateJavaScript("setKeyboardOpen(false)", completionHandler: nil)

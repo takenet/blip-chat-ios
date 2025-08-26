@@ -65,7 +65,7 @@ To use location cards, set up the Usage Description Key for Location Service on 
 
 	**Swift**
 	```swift
-	BlipClient.openBlipThread(myView: self, appKey: "your-app-key", options: nil)
+	BlipClient.openBlipThread(myView: self, appKey: "your-app-key", options: BlipOptions())
 	```
 
 	**Objective-C**
@@ -91,7 +91,7 @@ To use location cards, set up the Usage Description Key for Location Service on 
 
 		override func viewDidAppear(_ animated: Bool) {
 			do {
-            	try BlipClient.openBlipThread(myView: self, appKey: "your-api-key", options: nil)
+            	try BlipClient.openBlipThread(myView: self, appKey: "your-api-key", options: BlipOptions())
 			} catch {
 				print (error.localizedDescription)
 			}
