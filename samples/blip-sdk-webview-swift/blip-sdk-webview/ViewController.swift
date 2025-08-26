@@ -45,7 +45,7 @@ class ViewController: UIViewController {
             options.windowTitle = "Swift 1"
         #endif
         do {
-            try BlipClient.openBlipThread(myView: self, appKey: "YOUR-APP-KEY", options: options)
+            try BlipClient.openBlipThread(myView: self, appKey: "YmxpcGNoYXR0YWtlOjA2NGFkMWIwLTg0YTEtNDA5Mi04NjFiLWRlZGIxZWY0YzQ1Zg==", options: options)
         } catch {
             print (error.localizedDescription)
         }
