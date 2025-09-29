@@ -4,7 +4,7 @@ target 'blip-sdk-webview' do
   use_frameworks!
 
   pod 'BlipChat', :path => '../..'
-  # pod 'BlipChat', '3.1.0'
+  # pod 'BlipChat', '3.1.1'
 
   target 'blip-sdk-webviewTests' do
     inherit! :search_paths
