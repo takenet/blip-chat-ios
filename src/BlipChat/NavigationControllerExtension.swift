@@ -12,9 +12,20 @@ extension UINavigationController {
     override open var shouldAutorotate: Bool {
         get {
             if let visibleVC = visibleViewController {
-                return visibleVC.shouldAutorotate
+                if #available(iOS 16.0, *) {
+                    let supportedOrientations = visibleVC.supportedInterfaceOrientations
+                    return supportedOrientations.rawValue.nonzeroBitCount > 1
+                } else {
+                    return visibleVC.shouldAutorotate
+                }
             }
-            return super.shouldAutorotate
+
+            if #available(iOS 16.0, *) {
+                let supportedOrientations = self.supportedInterfaceOrientations
+                return supportedOrientations.rawValue.nonzeroBitCount > 1
+            } else {
+                return super.shouldAutorotate
+            }
         }
     }
     

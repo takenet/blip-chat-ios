@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.author             = { "Take" => "op.blip.app@take.net" }
 
   s.platform     = :ios
-  s.ios.deployment_target  = "10.0"
+  s.ios.deployment_target  = "18.0"
 
   s.source = { :git => 'https://github.com/takenet/blip-chat-ios.git', :tag => s.version.to_s }
   s.source_files = "src/BlipChat/*.swift", "src/BlipChat/*.storyboard"

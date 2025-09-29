@@ -12,7 +12,7 @@
     "Take": "op.blip.app@take.net"
   },
   "platforms": {
-    "ios": "10.0"
+    "ios": "18.0"
   },
   "source": {
     "git": "https://github.com/takenet/blip-chat-ios.git",

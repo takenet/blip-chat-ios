@@ -9,7 +9,7 @@ Installation
 
 ### Prerequisites
 
-To use the BLiP Chat for iOS, you must target iOS 10 or later.
+To use the BLiP Chat for iOS, you must target iOS 18 or later.
 
 Import the BLiP Chat for iOS into your project via CocoaPods:
 
@@ -355,7 +355,7 @@ If this occurs, you have two options:
 ### Support
 -------
 
-  iOS 10+.
+  iOS 12+.
 
 License
 -------

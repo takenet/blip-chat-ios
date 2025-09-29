@@ -1,4 +1,4 @@
-platform :ios, '10.0'
+platform :ios, '18.0'
 
 target 'blip-sdk-webview' do
   use_frameworks!

@@ -168,7 +168,6 @@
 				05B0E532B8E2BB71446593AF /* Pods-blip-sdk-webviewUITests.debug.xcconfig */,
 				27700110B6DC514C9BD248AE /* Pods-blip-sdk-webviewUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -277,6 +276,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -584,7 +584,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "blip-sdk-webview/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.take.blip-sdk-webview";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -603,7 +603,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "blip-sdk-webview/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.take.blip-sdk-webview";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -195,9 +195,17 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
         progressView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(progressView)
         
-        view.addConstraint(NSLayoutConstraint(item: progressView, attribute: .top, relatedBy: .equal, toItem: self.topLayoutGuide, attribute: .bottom, multiplier: 1.0, constant: 0.0))
-        view.addConstraint(NSLayoutConstraint(item: progressView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1.0, constant: 0.0))
-        view.addConstraint(NSLayoutConstraint(item: view, attribute: .trailing, relatedBy: .equal, toItem: progressView, attribute: .trailing, multiplier: 1.0, constant: 0.0))
+        if #available(iOS 11.0, *) {
+            NSLayoutConstraint.activate([
+                progressView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+                progressView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                progressView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            ])
+        } else {
+            view.addConstraint(NSLayoutConstraint(item: progressView as Any, attribute: .top, relatedBy: .equal, toItem: self.topLayoutGuide, attribute: .bottom, multiplier: 1.0, constant: 0.0))
+            view.addConstraint(NSLayoutConstraint(item: progressView as Any, attribute: .leading, relatedBy: .equal, toItem: view as Any, attribute: .leading, multiplier: 1.0, constant: 0.0))
+            view.addConstraint(NSLayoutConstraint(item: view as Any, attribute: .trailing, relatedBy: .equal, toItem: progressView as Any, attribute: .trailing, multiplier: 1.0, constant: 0.0))
+        }
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
