@@ -355,7 +355,7 @@ If this occurs, you have two options:
 ### Support
 -------
 
-  iOS 12+.
+  iOS 18+.
 
 License
 -------
