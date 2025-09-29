@@ -15,31 +15,46 @@ import UIKit
 @objc public class BlipClient : NSObject{
     
     /**
-        Open BlipChatController with the given apiKey and options
-        - Parameter myView: The controller calling the BlipChat
-        - Parameter identifier: The bot's identifier
-        - Parameter options: The options parameter with all the user customizations
-        - Throws: **BlipErrors.emptyApiKey** if apiKey is nil, **BlipErrors.emptyCredentials** if authType is *.Dev* and *userIdentity* or *userPassowrd*  is nil.
+        Opens the Blip Chat in full screen mode, pushing it to the navigation controller.
+        This is the classic integration method where the chat occupies the entire screen.
+        - Parameter myView: The view controller that will present the chat
+        - Parameter appKey: The bot's app key
+        - Parameter options: The chat configuration options
+        - Throws: **BlipErrors.emptyApiKey** if appKey is empty, **BlipErrors.emptyCredentials** if authType is .Dev and userIdentity/userPassword are empty, **BlipErrors.emptyNoNavController** if the presenting view controller has no navigation controller
     */
-    @objc public static func openBlipThread(myView: UIViewController, appKey: String, options:BlipOptions = BlipOptions()) throws{
-        // Validate Options and ApiKey
-        do {
-            try validateSdkConfiguration(identifier: appKey, options: options)
-        } catch {
-            throw error
-        }
-        
-        //Send values to Controller
-        let storyboard = UIStoryboard(name: "Storyboard", bundle: Bundle(for: self))
-        let viewController = storyboard.instantiateViewController(withIdentifier: "ThreadViewController") as! ThreadViewController
-        viewController.appKey = appKey
-        viewController.options = options
+    @objc public static func openBlipThread(myView: UIViewController, appKey: String, options: BlipOptions = BlipOptions()) throws{
+        let viewController = try getBlipThreadViewController(appKey: appKey, options: options)
         
         if myView.navigationController == nil {
             print("BlipChat Error: " + BlipErrors.emptyNoNavController.errorDescription!)
             throw BlipErrors.emptyNoNavController
         }
+
         myView.navigationController?.pushViewController(viewController, animated: true)
+    }
+
+    /**
+        Creates and returns a configured chat view controller, without presenting it in navigation.
+        Allows the integrator to add the chat as a child view controller and position it wherever desired.
+        - Parameter appKey: The bot's appKey
+        - Parameter options: The chat configuration options
+        - Returns: A UIViewController containing the chat interface
+        - Throws: **BlipErrors.emptyApiKey** if appKey is empty, **BlipErrors.emptyCredentials** if authType is .Dev and userIdentity/userPassword are empty
+    */
+    @objc public static func getBlipThreadViewController(appKey: String, options: BlipOptions = BlipOptions()) throws -> UIViewController {
+        do {
+            try validateSdkConfiguration(identifier: appKey, options: options)
+        } catch {
+            throw error
+        }
+
+        let storyboard = UIStoryboard(name: "Storyboard", bundle: Bundle(for: self))
+        let viewController = storyboard.instantiateViewController(withIdentifier: "ThreadViewController") as! ThreadViewController
+
+        viewController.appKey = appKey
+        viewController.options = options
+
+        return viewController
     }
     
     internal static func validateSdkConfiguration(identifier: String, options:BlipOptions) throws {

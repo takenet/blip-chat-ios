@@ -113,9 +113,16 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a50-xh-mn6">
                                 <rect key="frame" x="123" y="139" width="74" height="30"/>
-                                <state key="normal" title="Open Chat"/>
+                                <state key="normal" title="Open Full"/>
                                 <connections>
-                                    <action selector="openThread:" destination="fNQ-MY-V5p" eventType="touchUpInside" id="nYb-TI-X7G"/>
+                                    <action selector="openFullScreenThread:" destination="fNQ-MY-V5p" eventType="touchUpInside" id="nYb-TI-X7G"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b60-yh-no7">
+                                <rect key="frame" x="123" y="139" width="74" height="30"/>
+                                <state key="normal" title="Open Side"/>
+                                <connections>
+                                    <action selector="openEmbeddedThread:" destination="fNQ-MY-V5p" eventType="touchUpInside" id="mYc-UI-Y8H"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -123,6 +130,8 @@
                         <constraints>
                             <constraint firstItem="a50-xh-mn6" firstAttribute="top" secondItem="4VR-s6-66D" secondAttribute="bottom" constant="75" id="d5H-MW-eEv"/>
                             <constraint firstItem="a50-xh-mn6" firstAttribute="centerX" secondItem="Q43-cG-aaO" secondAttribute="centerX" id="n0k-wG-7NC"/>
+                            <constraint firstItem="b60-yh-no7" firstAttribute="top" secondItem="a50-xh-mn6" secondAttribute="bottom" constant="20" id="b60-top"/>
+                            <constraint firstItem="b60-yh-no7" firstAttribute="centerX" secondItem="Q43-cG-aaO" secondAttribute="centerX" id="b60-centerX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Third View" id="ttO-ic-OmW"/>

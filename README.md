@@ -37,6 +37,46 @@ How to use
 -------------------------
 
 ## Quick start
+You can open the chat in two ways:
+
+#### 1. Classic way (full screen, navigation push)
+
+```swift
+do {
+    let options = BlipOptions() // Configure as needed
+    try BlipClient.openBlipThread(myView: self, appKey: "your-app-key", options: options)
+} catch {
+    print("Error opening chat: \(error.localizedDescription)")
+}
+```
+
+#### 2. Embedding the chat in a portion of the screen (side panel)
+
+```swift
+do {
+    let options = BlipOptions() // Configure as needed
+    let chatVC = try BlipClient.getBlipThreadViewController(appKey: "your-app-key", options: options)
+    
+    // Add as child view controller
+    addChild(chatVC)
+    
+    // Configure the frame (example: right side of screen, 50% width)
+    let width = self.view.bounds.width * 0.5
+    chatVC.view.frame = CGRect(x: self.view.bounds.width - width, y: 0, width: width, height: self.view.bounds.height)
+    chatVC.view.autoresizingMask = [.flexibleLeftMargin, .flexibleHeight]
+    
+    // Add to view hierarchy
+    self.view.addSubview(chatVC.view)
+    chatVC.didMove(toParent: self)
+    
+    // Optional: keep reference for later removal
+    // self.blipChatVC = chatVC
+} catch {
+    print("Error opening embedded chat: \(error.localizedDescription)")
+}
+```
+
+This way, the chat will only occupy the right side of the screen and the rest of your app will remain interactive.
 
 ### Setting your SDK
 
