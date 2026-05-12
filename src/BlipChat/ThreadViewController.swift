@@ -91,11 +91,11 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
             .replacingOccurrences(of: Constants.SCRIPT_SDK_URL_KEY, with: self.options.customWidgetUrl ?? Constants.BLIP_SDK_URL)
             .replacingOccurrences(of: Constants.IFRAME_URL_KEY, with: self.options.customCommonUrl ?? Constants.IFRAME_URL)
             .replacingOccurrences(of: Constants.CUSTOM_COMMON_URL_KEY, with: self.options.customCommonUrl ?? "");
-        
-        self.webView.load(URLRequest(url:URL(string:Constants.BLIP_BLANK_PAGE)!))
+
         baseUrl = URL(string: "https://\(Bundle.main.bundleIdentifier!.lowercased())/")
-        
-        UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+
+        loadChatContent()
+        requestPortraitOrientation()
     }
     
     deinit {
@@ -139,9 +139,24 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
     /// Handle cancel button on nav bar
     @objc func handleCancel() {
         if self.webView.url != baseUrl {
-            self.webView.load(URLRequest(url:URL(string:Constants.BLIP_BLANK_PAGE)!))
+            loadChatContent()
         } else {
             self.navigationController?.popViewController(animated: true)
+        }
+    }
+
+    private func loadChatContent() {
+        self.webView.loadHTMLString(html, baseURL: baseUrl)
+    }
+
+    private func requestPortraitOrientation() {
+        if #available(iOS 16.0, *), let windowScene = view.window?.windowScene {
+            let geometryPreferences = UIWindowScene.GeometryPreferences.iOS(interfaceOrientations: .portrait)
+            windowScene.requestGeometryUpdate(geometryPreferences) { error in
+                print("BLiP Chat - Failed to request portrait orientation: \(error.localizedDescription)")
+            }
+        } else {
+            UIViewController.attemptRotationToDeviceOrientation()
         }
     }
 
@@ -154,8 +169,6 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
                       for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
         if navigationAction.targetFrame == nil { // Verify for link
             webView.load(navigationAction.request)
-        } else if navigationAction.request.url?.absoluteString == Constants.BLIP_BLANK_PAGE { // Verify for blank page
-            webView.loadHTMLString(html, baseURL: baseUrl)
         }
         return nil
     }
@@ -164,8 +177,6 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         if navigationAction.targetFrame == nil { // Verify for link
             webView.load(navigationAction.request)
-        } else if navigationAction.request.url?.absoluteString == Constants.BLIP_BLANK_PAGE { // Verify for blank page
-            webView.loadHTMLString(html, baseURL: baseUrl)
         }
         decisionHandler(.allow)
     }
