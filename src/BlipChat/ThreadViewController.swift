@@ -60,7 +60,11 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
         NotificationCenter.default.addObserver(self, selector: #selector(ThreadViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: self.view.window)
         NotificationCenter.default.addObserver(self, selector: #selector(ThreadViewController.keyboardDidHide), name: UIResponder.keyboardDidHideNotification, object: self.view.window)
 
+        #if SWIFT_PACKAGE
         let resourcesBundle = Bundle.module
+        #else
+        let resourcesBundle = Bundle(for: ThreadViewController.self)
+        #endif
         
         // Create cancel button
         let leftArrow = UIImage(named:"leftArrow", in: resourcesBundle, compatibleWith: nil);
