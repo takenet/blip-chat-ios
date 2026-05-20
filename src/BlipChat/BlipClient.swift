@@ -48,7 +48,12 @@ import UIKit
             throw error
         }
 
-        let storyboard = UIStoryboard(name: "Storyboard", bundle: Bundle.module)
+        #if SWIFT_PACKAGE
+        let bundle = Bundle.module
+        #else
+        let bundle = Bundle(for: BlipClient.self)
+        #endif
+        let storyboard = UIStoryboard(name: "Storyboard", bundle: bundle)
         let viewController = storyboard.instantiateViewController(withIdentifier: "ThreadViewController") as! ThreadViewController
 
         viewController.appKey = appKey
