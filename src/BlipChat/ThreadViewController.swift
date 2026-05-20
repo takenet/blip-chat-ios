@@ -63,7 +63,13 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
         #if SWIFT_PACKAGE
         let resourcesBundle = Bundle.module
         #else
-        let resourcesBundle = Bundle(for: ThreadViewController.self)
+        let resourcesBundle: Bundle = {
+            if let bundleURL = Bundle(for: ThreadViewController.self).url(forResource: "BlipChat", withExtension: "bundle"),
+               let bundle = Bundle(url: bundleURL) {
+                return bundle
+            }
+            return Bundle(for: ThreadViewController.self)
+        }()
         #endif
         
         // Create cancel button
