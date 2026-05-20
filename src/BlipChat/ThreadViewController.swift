@@ -60,13 +60,7 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
         NotificationCenter.default.addObserver(self, selector: #selector(ThreadViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: self.view.window)
         NotificationCenter.default.addObserver(self, selector: #selector(ThreadViewController.keyboardDidHide), name: UIResponder.keyboardDidHideNotification, object: self.view.window)
 
-        var resourcesBundle = Bundle(identifier: "org.cocoapods.BlipChat");
-        
-        if (resourcesBundle?.load()) != nil {
-           print("Bundle using indentifier")
-        } else {
-           resourcesBundle = Bundle(for: type(of: self));
-        }
+        let resourcesBundle = Bundle.module
         
         // Create cancel button
         let leftArrow = UIImage(named:"leftArrow", in: resourcesBundle, compatibleWith: nil);
@@ -82,7 +76,7 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
         self.navigationController?.topViewController?.navigationItem.title = self.options.windowTitle
         
         // Build html with user data
-        let htmlFile = resourcesBundle!.path(forResource: "BlipSdkTemplate", ofType: "html")!;
+        let htmlFile = resourcesBundle.path(forResource: "BlipSdkTemplate", ofType: "html")!;
         html = try! String(contentsOfFile: htmlFile, encoding: String.Encoding.utf8)
             .replacingOccurrences(of: Constants.API_KEY_VAR_KEY, with: self.appKey)
             .replacingOccurrences(of: Constants.AUTHCONFIG_VAR_KEY, with: self.options.getAuthTypeConfig())

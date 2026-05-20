@@ -48,7 +48,7 @@ import UIKit
             throw error
         }
 
-        let storyboard = UIStoryboard(name: "Storyboard", bundle: Bundle(for: self))
+        let storyboard = UIStoryboard(name: "Storyboard", bundle: Bundle.module)
         let viewController = storyboard.instantiateViewController(withIdentifier: "ThreadViewController") as! ThreadViewController
 
         viewController.appKey = appKey
