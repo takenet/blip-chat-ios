@@ -1,5 +1,5 @@
 PODS:
-  - BlipChat (3.3.0)
+  - BlipChat (3.2.0)
 
 DEPENDENCIES:
   - BlipChat (from `../..`)
