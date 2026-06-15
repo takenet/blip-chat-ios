@@ -60,13 +60,17 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
         NotificationCenter.default.addObserver(self, selector: #selector(ThreadViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: self.view.window)
         NotificationCenter.default.addObserver(self, selector: #selector(ThreadViewController.keyboardDidHide), name: UIResponder.keyboardDidHideNotification, object: self.view.window)
 
-        var resourcesBundle = Bundle(identifier: "org.cocoapods.BlipChat");
-        
-        if (resourcesBundle?.load()) != nil {
-           print("Bundle using indentifier")
-        } else {
-           resourcesBundle = Bundle(for: type(of: self));
-        }
+        #if SWIFT_PACKAGE
+        let resourcesBundle = Bundle.module
+        #else
+        let resourcesBundle: Bundle = {
+            if let bundleURL = Bundle(for: ThreadViewController.self).url(forResource: "BlipChat", withExtension: "bundle"),
+               let bundle = Bundle(url: bundleURL) {
+                return bundle
+            }
+            return Bundle(for: ThreadViewController.self)
+        }()
+        #endif
         
         // Create cancel button
         let leftArrow = UIImage(named:"leftArrow", in: resourcesBundle, compatibleWith: nil);
@@ -82,15 +86,24 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
         self.navigationController?.topViewController?.navigationItem.title = self.options.windowTitle
         
         // Build html with user data
-        let htmlFile = resourcesBundle!.path(forResource: "BlipSdkTemplate", ofType: "html")!;
-        html = try! String(contentsOfFile: htmlFile, encoding: String.Encoding.utf8)
-            .replacingOccurrences(of: Constants.API_KEY_VAR_KEY, with: self.appKey)
-            .replacingOccurrences(of: Constants.AUTHCONFIG_VAR_KEY, with: self.options.getAuthTypeConfig())
-            .replacingOccurrences(of: Constants.ACCOUNT_VAR_KEY, with: self.options.getAccount())
-            .replacingOccurrences(of: Constants.CONNECTION_DATA_KEY, with: self.options.getConnectionDataConfig())
-            .replacingOccurrences(of: Constants.SCRIPT_SDK_URL_KEY, with: self.options.customWidgetUrl ?? Constants.BLIP_SDK_URL)
-            .replacingOccurrences(of: Constants.IFRAME_URL_KEY, with: self.options.customCommonUrl ?? Constants.IFRAME_URL)
-            .replacingOccurrences(of: Constants.CUSTOM_COMMON_URL_KEY, with: self.options.customCommonUrl ?? "");
+        guard let htmlFile = resourcesBundle.path(forResource: "BlipSdkTemplate", ofType: "html") else {
+            assertionFailure("BlipChat Error: BlipSdkTemplate.html resource not found.")
+            return
+        }
+
+        do {
+            html = try String(contentsOfFile: htmlFile, encoding: String.Encoding.utf8)
+                .replacingOccurrences(of: Constants.API_KEY_VAR_KEY, with: self.appKey)
+                .replacingOccurrences(of: Constants.AUTHCONFIG_VAR_KEY, with: self.options.getAuthTypeConfig())
+                .replacingOccurrences(of: Constants.ACCOUNT_VAR_KEY, with: self.options.getAccount())
+                .replacingOccurrences(of: Constants.CONNECTION_DATA_KEY, with: self.options.getConnectionDataConfig())
+                .replacingOccurrences(of: Constants.SCRIPT_SDK_URL_KEY, with: self.options.customWidgetUrl ?? Constants.BLIP_SDK_URL)
+                .replacingOccurrences(of: Constants.IFRAME_URL_KEY, with: self.options.customCommonUrl ?? Constants.IFRAME_URL)
+                .replacingOccurrences(of: Constants.CUSTOM_COMMON_URL_KEY, with: self.options.customCommonUrl ?? "")
+        } catch {
+            assertionFailure("BlipChat Error: Failed to load BlipSdkTemplate.html.")
+            return
+        }
 
         baseUrl = URL(string: "https://\(Bundle.main.bundleIdentifier!.lowercased())/")
 
@@ -150,13 +163,15 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
     }
 
     private func requestPortraitOrientation() {
-        if #available(iOS 16.0, *), let windowScene = view.window?.windowScene {
+        let windowScene = view.window?.windowScene
+            ?? UIApplication.shared.connectedScenes
+                .compactMap { $0 as? UIWindowScene }
+                .first(where: { $0.activationState == .foregroundActive })
+        if let windowScene = windowScene {
             let geometryPreferences = UIWindowScene.GeometryPreferences.iOS(interfaceOrientations: .portrait)
             windowScene.requestGeometryUpdate(geometryPreferences) { error in
                 print("BLiP Chat - Failed to request portrait orientation: \(error.localizedDescription)")
             }
-        } else {
-            UIViewController.attemptRotationToDeviceOrientation()
         }
     }
 
