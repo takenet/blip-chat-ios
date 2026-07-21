@@ -8,6 +8,7 @@
 
 import UIKit
 import WebKit
+@objc(BlipChatThreadViewController)
 internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIScrollViewDelegate, WKUIDelegate {
     
     var appKey : String!

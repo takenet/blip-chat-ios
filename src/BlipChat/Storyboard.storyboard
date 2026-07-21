@@ -11,7 +11,7 @@
         <!--Thread-->
         <scene sceneID="i5J-vg-TXv">
             <objects>
-                <viewController storyboardIdentifier="ThreadViewController" title="ThreadViewController" id="32R-DJ-UGp" userLabel="Thread" customClass="ThreadViewController" customModule="BlipChat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ThreadViewController" title="ThreadViewController" id="32R-DJ-UGp" userLabel="Thread" customClass="BlipChatThreadViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aJg-Jr-Xmt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
