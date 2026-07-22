@@ -164,15 +164,20 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
     }
 
     private func requestPortraitOrientation() {
-        let windowScene = view.window?.windowScene
-            ?? UIApplication.shared.connectedScenes
-                .compactMap { $0 as? UIWindowScene }
-                .first(where: { $0.activationState == .foregroundActive })
-        if let windowScene = windowScene {
-            let geometryPreferences = UIWindowScene.GeometryPreferences.iOS(interfaceOrientations: .portrait)
-            windowScene.requestGeometryUpdate(geometryPreferences) { error in
-                print("BLiP Chat - Failed to request portrait orientation: \(error.localizedDescription)")
+        if #available(iOS 16.0, *) {
+            let windowScene = view.window?.windowScene
+                ?? UIApplication.shared.connectedScenes
+                    .compactMap { $0 as? UIWindowScene }
+                    .first(where: { $0.activationState == .foregroundActive })
+            if let windowScene = windowScene {
+                let geometryPreferences = UIWindowScene.GeometryPreferences.iOS(interfaceOrientations: .portrait)
+                windowScene.requestGeometryUpdate(geometryPreferences) { error in
+                    print("BLiP Chat - Failed to request portrait orientation: \(error.localizedDescription)")
+                }
             }
+        } else {
+            UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+            UINavigationController.attemptRotationToDeviceOrientation()
         }
     }
 

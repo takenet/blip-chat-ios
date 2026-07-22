@@ -4,7 +4,7 @@ import PackageDescription
 let package = Package(
     name: "BlipChat",
     platforms: [
-        .iOS(.v18)
+        .iOS(.v15)
     ],
     products: [
         .library(
