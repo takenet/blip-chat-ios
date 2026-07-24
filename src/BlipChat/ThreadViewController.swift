@@ -182,8 +182,7 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
                 }
             }
         } else {
-            UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
-            UINavigationController.attemptRotationToDeviceOrientation()
+            UIViewController.attemptRotationToDeviceOrientation()
         }
     }
 
@@ -251,13 +250,16 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
         
         // Inject JavaScript to improve keyboard handling
         let keyboardHandlingScript = """
-            document.addEventListener('focusin', function(event) {
-                if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') {
-                    setTimeout(function() {
-                        event.target.scrollIntoView({behavior: 'smooth', block: 'center'});
-                    }, 100);
-                }
-            });
+            if (!window.__blipChatKeyboardHandlerInstalled) {
+                window.__blipChatKeyboardHandlerInstalled = true;
+                document.addEventListener('focusin', function(event) {
+                    if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') {
+                        setTimeout(function() {
+                            event.target.scrollIntoView({behavior: 'smooth', block: 'center'});
+                        }, 100);
+                    }
+                });
+            }
         """
         webView.evaluateJavaScript(keyboardHandlingScript, completionHandler: nil)
     }

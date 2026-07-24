@@ -26,13 +26,7 @@ internal class BlipWebViewBuilder {
         // Configure user content controller
         webViewConfiguration.userContentController = WKUserContentController()
         
-        // Allow inline media playback
-        webViewConfiguration.allowsInlineMediaPlayback = true
-        
-        // Allow audio and video playback without user interaction
-        if #available(iOS 10.0, *) {
-            webViewConfiguration.mediaTypesRequiringUserActionForPlayback = []
-        }
+        // Keep default media playback behavior (requires user interaction) to avoid unexpected autoplay.
         
         self.webView = WKWebView(frame: .zero, configuration: webViewConfiguration)
     }
