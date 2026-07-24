@@ -292,7 +292,8 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
             }))
             self.present(alertController, animated: true, completion: nil)
         }
-    
+    }
+
     // Handle JavaScript alerts
     func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
         let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
