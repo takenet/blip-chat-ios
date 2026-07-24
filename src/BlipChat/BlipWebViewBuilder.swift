@@ -29,9 +29,6 @@ internal class BlipWebViewBuilder {
         // Keep default media playback behavior (requires user interaction) to avoid unexpected autoplay.
         
         self.webView = WKWebView(frame: .zero, configuration: webViewConfiguration)
-        
-        // CRITICAL: Enable input accessory view to show keyboard
-        self.webView.scrollView.inputAccessoryView = UIView()
     }
     
     func build() -> WKWebView{
