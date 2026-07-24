@@ -14,11 +14,16 @@ internal class BlipWebViewBuilder {
     var webView:WKWebView
     
     init(){
-        self.webView = WKWebView()
+        let configuration = WKWebViewConfiguration()
+        configuration.allowsInlineMediaPlayback = true
+        configuration.mediaTypesRequiringUserActionForPlayback = []
+        self.webView = WKWebView(frame: .zero, configuration: configuration)
     }
     
     func build() -> WKWebView{
         self.webView.scrollView.bounces = false
+        self.webView.scrollView.contentInsetAdjustmentBehavior = .never
+        self.webView.scrollView.keyboardDismissMode = .interactive
         self.webView.translatesAutoresizingMaskIntoConstraints = false
         return webView
     }
