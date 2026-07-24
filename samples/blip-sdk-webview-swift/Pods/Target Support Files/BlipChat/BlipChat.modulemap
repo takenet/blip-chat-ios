@@ -1,6 +1,0 @@
-framework module BlipChat {
-  umbrella header "BlipChat-umbrella.h"
-
-  export *
-  module * { export * }
-}
