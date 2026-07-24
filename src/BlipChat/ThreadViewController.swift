@@ -274,18 +274,24 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
     
     // Handle text input (alerts and prompts)
     func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (String?) -> Void) {
-        let alertController = UIAlertController(title: nil, message: prompt, preferredStyle: .alert)
-        alertController.addTextField { textField in
-            textField.text = defaultText
+        DispatchQueue.main.async {
+            guard self.presentedViewController == nil else {
+                completionHandler(defaultText)
+                return
+            }
+
+            let alertController = UIAlertController(title: nil, message: prompt, preferredStyle: .alert)
+            alertController.addTextField { textField in
+                textField.text = defaultText
+            }
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                completionHandler(alertController.textFields?.first?.text)
+            }))
+            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
+                completionHandler(nil)
+            }))
+            self.present(alertController, animated: true, completion: nil)
         }
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-            completionHandler(alertController.textFields?.first?.text)
-        }))
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
-            completionHandler(nil)
-        }))
-        self.present(alertController, animated: true, completion: nil)
-    }
     
     // Handle JavaScript alerts
     func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
