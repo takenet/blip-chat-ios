@@ -4,7 +4,4 @@
    <FileRef
       location = "group:blip-sdk-webview.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:Pods/Pods.xcodeproj">
-   </FileRef>
 </Workspace>

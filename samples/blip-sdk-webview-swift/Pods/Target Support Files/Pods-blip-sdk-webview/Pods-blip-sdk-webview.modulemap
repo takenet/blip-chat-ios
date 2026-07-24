@@ -1,6 +1,0 @@
-framework module Pods_blip_sdk_webview {
-  umbrella header "Pods-blip-sdk-webview-umbrella.h"
-
-  export *
-  module * { export * }
-}
