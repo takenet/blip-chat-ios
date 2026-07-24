@@ -57,8 +57,9 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
         setProgressView();
         
         // Add listeners for keyboard
-        NotificationCenter.default.addObserver(self, selector: #selector(ThreadViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(ThreadViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ThreadViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: self.view.window)
+        NotificationCenter.default.addObserver(self, selector: #selector(ThreadViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: self.view.window)
+        NotificationCenter.default.addObserver(self, selector: #selector(ThreadViewController.keyboardDidHide), name: UIResponder.keyboardDidHideNotification, object: self.view.window)
 
         #if SWIFT_PACKAGE
         let resourcesBundle = Bundle.module
@@ -118,48 +119,35 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
     
     /// Handle keyboard appearing on screen
     @objc func keyboardWillShow(notification: NSNotification) {
-        guard let keyboardFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
-              let duration = (notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue,
-              let animationCurveRaw = (notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber)?.uintValue else {
-            return
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            var bottomInset: CGFloat = 0
+            
+            if #available(iOS 11.0, *) {
+                bottomInset = view.safeAreaInsets.bottom
+            }
+
+            bottomConstraint.constant = -(keyboardSize.height - bottomInset)
+            updateViewConstraints()
+               
+            // Notify about blipchat that keyboard is open
+            self.webView.evaluateJavaScript("setKeyboardOpen(true)", completionHandler: nil)
         }
-        
-        let animationCurve = UIView.AnimationCurve(rawValue: Int(animationCurveRaw)) ?? .easeInOut
-        var bottomInset: CGFloat = 0
-        
-        if #available(iOS 11.0, *) {
-            bottomInset = view.safeAreaInsets.bottom
-        }
-        
-        let keyboardHeight = keyboardFrame.height
-        bottomConstraint.constant = -(keyboardHeight - bottomInset)
-        
-        // Animate constraint change synchronized with keyboard animation
-        UIView.animate(withDuration: duration, delay: 0, options: UIView.AnimationOptions(rawValue: UIView.AnimationOptions.RawValue(animationCurve.rawValue << 16)), animations: {
-            self.view.layoutIfNeeded()
-        }, completion: nil)
-        
-        // Notify about blipchat that keyboard is open
-        self.webView.evaluateJavaScript("setKeyboardOpen(true)", completionHandler: nil)
     }
-    
+       
     /// Handle keyboard hiding on screen
     @objc func keyboardWillHide(notification: NSNotification) {
-        guard let duration = (notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue,
-              let animationCurveRaw = (notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber)?.uintValue else {
-            return
-        }
         
-        let animationCurve = UIView.AnimationCurve(rawValue: Int(animationCurveRaw)) ?? .easeInOut
         bottomConstraint.constant = 0
-        
-        // Animate constraint change synchronized with keyboard animation
-        UIView.animate(withDuration: duration, delay: 0, options: UIView.AnimationOptions(rawValue: UIView.AnimationOptions.RawValue(animationCurve.rawValue << 16)), animations: {
-            self.view.layoutIfNeeded()
-        }, completion: nil)
+        updateViewConstraints()
         
         // Notify about blipchat that keyboard is closed
         self.webView.evaluateJavaScript("setKeyboardOpen(false)", completionHandler: nil)
+    }
+    
+    /// Handle keyboard after hidden of screen
+    @objc func keyboardDidHide(notification: NSNotification) {
+        // Prevent animation overlay
+        view.layer.removeAllAnimations()
     }
     
     /// Handle cancel button on nav bar
