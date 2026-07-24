@@ -33,6 +33,12 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
             .build()
 
         webView.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Configure WebView for keyboard support
+        webView.scrollView.keyboardDismissMode = .interactive
+        
+        // Ensure scrollView doesn't interfere with keyboard
+        webView.scrollView.contentInsetAdjustmentBehavior = .never
 
         baseView.addSubview(webView)
 
@@ -242,6 +248,18 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         print("BLiP Chat - Finish loading HTML string successfully")
+        
+        // Inject JavaScript to improve keyboard handling
+        let keyboardHandlingScript = """
+            document.addEventListener('focusin', function(event) {
+                if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') {
+                    setTimeout(function() {
+                        event.target.scrollIntoView({behavior: 'smooth', block: 'center'});
+                    }, 100);
+                }
+            });
+        """
+        webView.evaluateJavaScript(keyboardHandlingScript, completionHandler: nil)
     }
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
@@ -250,6 +268,42 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
     
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
         print("BLiP Chat - Fail provisional navigation: \(error)")
+    }
+    
+    // Handle text input (alerts and prompts)
+    func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (String?) -> Void) {
+        let alertController = UIAlertController(title: nil, message: prompt, preferredStyle: .alert)
+        alertController.addTextField { textField in
+            textField.text = defaultText
+        }
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+            completionHandler(alertController.textFields?.first?.text)
+        }))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
+            completionHandler(nil)
+        }))
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    // Handle JavaScript alerts
+    func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
+        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+            completionHandler()
+        }))
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    // Handle JavaScript confirm dialogs
+    func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
+        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+            completionHandler(true)
+        }))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
+            completionHandler(false)
+        }))
+        self.present(alertController, animated: true, completion: nil)
     }
     
     override open var supportedInterfaceOrientations: UIInterfaceOrientationMask {
