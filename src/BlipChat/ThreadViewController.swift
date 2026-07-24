@@ -247,6 +247,8 @@ internal class ThreadViewController: UIViewController, WKNavigationDelegate, UIS
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         print("BLiP Chat - Finish loading HTML string successfully")
+
+        guard webView.url == baseUrl else { return }
         
         // Inject JavaScript to improve keyboard handling
         let keyboardHandlingScript = """
