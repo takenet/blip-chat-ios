@@ -6,7 +6,7 @@ SDK to easily add BLiP Chat's widget to your iOS app. For more information, see 
 
 ### Prerequisites
 
-To use the BLiP Chat for iOS, you must target iOS 18 or later.
+To use the BLiP Chat for iOS, you must target iOS 15 or later.
 
 ### Swift Package Manager (recommended)
 
@@ -373,7 +373,7 @@ If this occurs, you have two options:
 
 ---
 
-iOS 18+.
+iOS 15+.
 
 ## License
 
