@@ -97,6 +97,13 @@ To use location cards, set up the Usage Description Key for Location Service on 
 
 ![](images/location.png)
 
+To allow users to take a photo natively from the chat (e.g. sending a picture through a file input in the web view), set up the Usage Description Keys for Camera and Photo Library on **info.plist** file of your app:
+
+- `NSCameraUsageDescription` (_Privacy - Camera Usage Description_): required to open the camera and take a photo.
+- `NSPhotoLibraryUsageDescription` (_Privacy - Photo Library Usage Description_): required if the file picker also allows choosing an existing photo from the library.
+
+> **Warning:** If these keys are missing from your app's `Info.plist`, tapping "Take Photo" does **not** simply block the permission request — iOS abruptly terminates the app process (a privacy/TCC enforcement behavior of the OS). This is not an SDK bug; both keys must be declared in the **consuming app's** `Info.plist`, not in the SDK's.
+
 ### Opening a new Blip Conversation
 
 1. Importing BLiP SDK
